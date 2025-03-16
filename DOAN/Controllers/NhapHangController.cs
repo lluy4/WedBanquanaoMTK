@@ -6,84 +6,69 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
-
+using DOAN.MTK.Facades; // Thêm namespace để sử dụng NhapHangFacade
 
 namespace DOAN.Controllers
 {
     [Authorize(Roles = "*")]
     public class NhapHangController : Controller
     {
-        TMDTDbContext db = new TMDTDbContext();
+        private readonly TMDTDbContext _context;
+        private readonly NhapHangFacade _nhapHangFacade;
+
+        // Constructor sử dụng Dependency Injection (tạm thời khởi tạo thủ công)
+        public NhapHangController()
+        {
+            _context = new TMDTDbContext();
+            _nhapHangFacade = new NhapHangFacade(_context);
+        }
+
         // GET: NhapHang
         public ActionResult Index()
         {
-            var model = db.NHAPHANGs.OrderByDescending(x => x.NgayNhap);
+            var model = _context.NHAPHANGs.OrderByDescending(x => x.NgayNhap);
             return View(model);
         }
 
-       
-
-        public ActionResult PhieuNhap(int idTH=0, int error=0,string noidung=null)
+        public ActionResult PhieuNhap(int idTH = 0, int error = 0, string noidung = null)
         {
             ViewBag.Error = error;
             ViewBag.NoiDung = noidung;
-            if(idTH==0)
+            if (idTH == 0)
             {
-                ViewBag.SanPham = db.SANPHAMs.Where(x=>x.TinhTrang==1 || x.TinhTrang==2);
+                ViewBag.SanPham = _context.SANPHAMs.Where(x => x.TinhTrang == 1 || x.TinhTrang == 2);
                 ViewBag.ThuongHieu = null;
-            }    
+            }
             else
             {
-                THUONGHIEU th = db.THUONGHIEUx.Find(idTH);
+                THUONGHIEU th = _context.THUONGHIEUx.Find(idTH);
                 if (th == null)
                     return HttpNotFound();
                 ViewBag.ThuongHieu = th;
-                ViewBag.SanPham = db.SANPHAMs.Where(x => x.IdTH == th.IdTH && (x.TinhTrang == 1 || x.TinhTrang == 2));
-            }    
+                ViewBag.SanPham = _context.SANPHAMs.Where(x => x.IdTH == th.IdTH && (x.TinhTrang == 1 || x.TinhTrang == 2));
+            }
             return View();
         }
 
         [HttpPost]
         public ActionResult PhieuNhap(IEnumerable<NHAPHANG> Model, FormCollection f)
         {
-            string loi = "";
-            int error = 0;
             try
             {
                 DateTime dt = DateTime.Parse(f["NgayNhap"].ToString());
-                foreach (var item in Model)
+                var result = _nhapHangFacade.ProcessNhapHang(Model, dt); // Gọi NhapHangFacade
+                if (!result.Success)
                 {
-                    NHAPHANG nh = new NHAPHANG();
-                    nh.IdSP = item.IdSP;
-                    nh.NgayNhap = dt;
-                    nh.SoLuong = item.SoLuong;
-                    nh.GiaNhap = item.GiaNhap;
-                    if (db.NHAPHANGs.Where(x => x.NgayNhap == nh.NgayNhap && x.IdSP == nh.IdSP).Count() > 0)
-                    {
-                        error = 1;
-                        loi += db.SANPHAMs.Find(nh.IdSP).TenSP + ", ";
-                    }
-                    else
-                    {
-                        db.NHAPHANGs.Add(nh);
-                        db.SaveChanges();
-                    }
-                }
-                
-                if(error==1)
-                {
-                    string noidung="Sản phẩm "+loi.Substring(0, loi.Length - 2)+" đã được nhập hàng vào ngày hôm nay. Không thể cập nhật lại";
-                    return RedirectToAction("PhieuNhap", "NhapHang", new { error = error, noidung = noidung });
+                    return RedirectToAction("PhieuNhap", "NhapHang", new { error = 1, noidung = result.ErrorMessage });
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
                 ModelState.AddModelError("", "Please check the information you entered.");
-                ViewBag.SanPham = db.SANPHAMs;
+                ViewBag.SanPham = _context.SANPHAMs;
                 return View();
             }
-            
         }
     }
 }
