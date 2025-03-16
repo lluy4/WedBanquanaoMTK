@@ -1,0 +1,18 @@
+﻿@using DOAN.Models;
+@model IEnumerable<THUONGHIEU>
+   
+@{ 
+    var LoaiSP = (LOAISANPHAM)ViewBag.Loai;
+}
+
+<!--Single Widget -->
+<div class="single-widget category">
+    <h3 class="title">THƯƠNG HIỆU</h3>
+    <ul class="categor-list">
+        @foreach (var item in Model)
+        {
+            <li class="pb-2"><a href="@Url.Action("SanPhamTheoLoai","SanPham",new {idLoai=LoaiSP.IdLoaiSP, idTH=item.IdTH})">@item.TenTH</a></li>
+        }
+    </ul>
+</div>
+<!--End Single Widget -->

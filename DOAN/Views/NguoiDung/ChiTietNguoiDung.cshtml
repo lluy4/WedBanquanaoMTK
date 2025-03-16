@@ -1,0 +1,297 @@
+﻿@using DOAN.Models;
+@model NGUOIDUNG
+@{
+    ViewBag.Title = "ChiTietNguoiDung";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    string anhcu = ViewBag.AnhCu;
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+}
+
+
+
+
+@section script{
+    <script type="text/javascript">
+        function fileCheck(obj) {
+            var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+            if ($.inArray($(obj).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Chỉ hình ảnh định dạng '.jpeg','.jpg', '.png', '.gif', '.bmp' mới được phép");
+            }
+        }
+
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chu</a></li>
+                    <li class="breadcrumb-item active">Thong tin nguoi dung</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container">
+        @if (ViewBag.Error == -1)
+        {
+            <div class="alert alert-success ">
+                Quá trình thực hiện thành công
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        else if (ViewBag.Error == 1)
+        {
+            <div class="alert alert-warning ">
+                Quá trình thực hiện thất bại
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        else if (ViewBag.Error == 2)
+        {
+            <div class="alert alert-warning ">
+                Mật khẩu xác nhận không khớp
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        else if (ViewBag.Error == 3)
+        {
+            <div class="alert alert-warning ">
+                Nhập mật khẩu không đúng
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        else if (ViewBag.Error == 4)
+        {
+            <div class="alert alert-warning ">
+                Vui lòng kiểm tra lại thông tin đã nhập
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            @if (Model.Avatar == null)
+                            {
+                                if (Model.GioiTinh)
+                                {
+                                    <img src="~/assets/admin/default/11.png" class="profile-user-img img-fluid img-circle" style="width:100px;height:102px" alt="User Image">
+                                }
+                                else
+                                {
+                                    <img src="~/assets/admin/default/10.png" class="profile-user-img img-fluid img-circle" style="width:100px;height:102px" alt="User Image">
+                                }
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/assets/admin/hinhnd/"+Model.Avatar)" style="width:100px;height:102px" class="profile-user-img img-fluid img-circle" alt="User Image">
+                            }
+                        </div>
+
+                        <h3 class="profile-username text-center">@Url.Content(Model.HoTen)</h3>
+
+                        <p class="text-muted text-center">@Url.Content(Model.LOAIUSER.IdLoaiUser == 1 ? "Khách hàng" : "Nhân viên")</p><br />
+                        <ul class="list-group list-group-unbordered mb-3">
+
+                            <li class="list-group-item">
+                                <b>Ngày sinh</b> <a class="float-right">@DateTime.Parse(Model.NgaySinh == null ? DateTime.Now.ToString() : Model.NgaySinh.ToString()).ToString("dd/MM/yyyy")</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Giới tính</b> <a class="float-right">@Url.Content(Model.GioiTinh ? "Nữ" : "Nam")</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item float-right"><a class="nav-link active" href="#activity" data-toggle="tab">Thông tin</a></li>
+                            @if (user != null && user.IdUser == Model.IdUser)
+                            {
+                                <li class="nav-item float-right"><a class="nav-link" href="#settings" data-toggle="tab">Cập nhật</a></li>
+                                <li class="nav-item float-right"><a class="nav-link" href="#changepassword" data-toggle="tab">Đổi mật khẩu</a></li>
+                            }
+
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body p-0 m-0">
+                        <div class="tab-content ">
+                            <div class="active tab-pane" id="activity">
+                                <!-- Post -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-5 col-sm-2">
+                                            <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link active" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Thông tin liên lạc</a>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-7 col-sm-9">
+                                            <div class="tab-content" id="vert-tabs-tabContent">
+                                                <div class="tab-pane text-left fade show active" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
+                                                    <div class="row pl-3 ml-3 pt-1 mt-1">
+                                                        <div class="col-5"><b>Điện thoại</b></div>
+                                                        <div class="col-1">:</div>
+                                                        <div class="col-6">@Model.SDT</div>
+                                                    </div>
+                                                    <div class="row pl-3 ml-3 pt-2 mt-2">
+                                                        <div class="col-5"><b>Email</b></div>
+                                                        <div class="col-1">:</div>
+                                                        <div class="col-6">@Model.Mail</div>
+                                                    </div>
+                                                    <div class="row pl-3 ml-3 pt-2 mt-2">
+                                                        <div class="col-5"><b>Địa chỉ</b></div>
+                                                        <div class="col-1">:</div>
+                                                        <div class="col-6">@Model.DiaChi</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.tab-pane -->
+                            @if (user != null && user.IdUser == Model.IdUser)
+                            {
+                                <div class="tab-pane pl-4 pt-2 pb-2 pr-4 m-2" id="settings">
+                                    @using (Html.BeginForm("CapNhatThongTin", "NguoiDung", new { AnhCu = anhcu }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.IdUser)
+                                        @Html.HiddenFor(model => model.IdLoaiUser)
+                                        @Html.HiddenFor(model => model.HoTen)
+                                        @Html.HiddenFor(model => model.TT_User)
+
+                                        @Html.HiddenFor(model => model.Password)
+                                        @Html.HiddenFor(model => model.Password1)
+
+                                        @Html.HiddenFor(model => model.Username)
+                                        @Html.HiddenFor(model => model.NgayTao)
+                                        @Html.HiddenFor(model => model.Mail)
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-2 col-form-label">Avatar</label>
+                                            <div class="col-sm-10">
+                                                @Html.LabelFor(model => model.Avatar, "Choose File", new { @for = "Avatar", @class = "custom-file-label" })
+                                                <input class="custom-file-input" type="file" name="Avatar" id="Avatar" onchange="fileCheck(this);" />
+                                                @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-2 col-form-label">Nữ</label>
+                                            <div class="col-sm-10">
+                                                @Html.EditorFor(model => model.GioiTinh)
+                                                @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Ngày sinh</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.NgaySinh, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control", @id = "inputBD" })
+                                                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Điện thoại</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.SDT, new { @type = "text", @class = "form-control", @id = "inputPhone" })
+                                                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Địa chỉ</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.DiaChi, new { @type = "text", @class = "form-control", @id = "inputPhone" })
+                                                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-danger float-right">Lưu</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="tab-pane pl-4 pt-2 pb-2 pr-4 m-2" id="changepassword">
+                                    @using (Html.BeginForm("ThayDoiMatKhau", "NguoiDung", FormMethod.Post))
+                                    {
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Mật khẩu</label>
+                                            <div class="col-sm-9">
+                                                <input name="matkhaucu" type="password" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Mật khẩu mới</label>
+                                            <div class="col-sm-9">
+                                                <input name="matkhaumoi" type="password" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nhập lại mật khẩu</label>
+                                            <div class="col-sm-9">
+                                                <input name="xacnhan" type="password" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-danger float-right">Lưu</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            <!-- /.tab-content -->
+
+                        </div>
+
+                    </div><!-- /.card-body -->
+
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>

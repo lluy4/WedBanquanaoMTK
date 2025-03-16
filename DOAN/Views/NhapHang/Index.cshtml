@@ -1,0 +1,105 @@
+﻿@using DOAN.Models;
+
+@model IEnumerable<NHAPHANG>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+}
+
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+            <li class="breadcrumb-item active">Nhap hang</li>
+        </ol>
+    </div>
+}
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $(".DeleteId").prepend("<i class='far fa-trash-alt'></i>");
+
+    </script>
+}
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Nhập hàng</h3>
+                        <!-- Button trigger modal -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr>
+                                                <th>@Html.DisplayNameFor(model => model.SANPHAM.TenSP)</th>
+                                                <th>@Html.DisplayNameFor(model => model.NgayNhap)</th>
+                                                <th>@Html.DisplayNameFor(model => model.SoLuong)</th>
+                                                <th>@Html.DisplayNameFor(model => model.GiaNhap)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var i in Model)
+                                            {
+                                                <tr id="row1_@i.NgayNhap.ToString()_@i.IdSP">
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => i.SANPHAM.TenSP)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => i.NgayNhap)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => i.SoLuong)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => i.GiaNhap)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</a>

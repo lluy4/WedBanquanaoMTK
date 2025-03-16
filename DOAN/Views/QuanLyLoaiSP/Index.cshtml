@@ -1,0 +1,118 @@
+﻿@using DOAN.Models
+@model IEnumerable<LOAISANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var dsDanhMuc = ViewBag.DanhMuc as IEnumerable<DANHMUC>;
+}
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+            <li class="breadcrumb-item active">Loai san pham</li>
+        </ol>
+    </div>
+}
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $(".DeleteId").prepend("<i class='far fa-trash-alt'></i>");
+
+    </script>
+}
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Loại sản phẩm</h3>
+                        <!-- Button trigger modal -->
+                        <a class="btn btn-success float-right" href="@Url.Action("Create","QuanLyLoaiSP")">
+                            Thêm
+                        </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr>
+                                                <th>@Html.DisplayNameFor(model => model.TenLoai)</th>
+                                                <th>@Html.DisplayNameFor(model => model.DanhMuc)</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr id="row1_@item.IdLoaiSP">
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TenLoai)
+                                                    </td>
+                                                    <td>
+                                                        @foreach(var i in dsDanhMuc)
+                                                        {
+                                                            if (i.IdDM == item.DanhMuc)
+                                                            {
+                                                                @Html.DisplayFor(ten=>i.TenDM)
+                                                            }
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group btn-group-sm">
+                                                            <a class="btn btn-info" href="@Url.Action("Edit","QuanLyLoaiSP",new { id=item.IdLoaiSP})">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </a>
+                                                            @Ajax.ActionLink(" ", "Delete", new { id = item.IdLoaiSP }, new AjaxOptions { Confirm = "Bạn có muốn xoá loại sản phẩm này?", OnComplete = "$('#row1_" + @item.IdLoaiSP + "').remove()", HttpMethod = "Post" }, new { @class = "btn btn-danger DeleteId" })
+
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</a>
+

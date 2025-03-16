@@ -1,0 +1,46 @@
+﻿@using DOAN.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+@{
+    IEnumerable<SANPHAM> listSP = (IEnumerable<SANPHAM>)ViewBag.listSP;
+}
+
+
+<!-- Start Small Banner  -->
+<section class="small-banner section">
+    <div class="container-fluid mt-5 mb-4"><img src="@Url.Content("~/assets/client/hinhsp/danhmuc/text.jpg")" alt="#"></div>
+    <div class="container container-fluid">
+        <div class="row">
+            <!-- Single Banner  -->
+            <div class="col-lg-3 col-md-6 col-7">
+                <a href="@Url.Action("SanPhamTheoDanhMuc","SanPham",new { idDM=1})"><img src="@Url.Content("~/assets/client/hinhsp/danhmuc/frame1.jpg")" alt="#"></a>
+                
+            </div>
+            <!-- /End Single Banner  -->
+            <!-- Single Banner  -->
+            <div class="col-lg-3 col-md-6 col-7">
+                <a href="@Url.Action("SanPhamTheoDanhMuc","SanPham",new { idDM=4})"><img src="@Url.Content("~/assets/client/hinhsp/danhmuc/frame2.jpg")" alt="#"></a>
+            </div>
+            <!-- /End Single Banner  -->
+            <!-- Single Banner  -->
+            <div class="col-lg-3 col-md-6 col-7">
+                <a href="@Url.Action("SanPhamTheoDanhMuc","SanPham",new { idDM=2})"><img src="@Url.Content("~/assets/client/hinhsp/danhmuc/fame3.jpg")" alt="#"></a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-7">
+                <a href="@Url.Action("SanPhamTheoDanhMuc","SanPham",new { idDM=6})"><img src="@Url.Content("~/assets/client/hinhsp/danhmuc/frame4.jpg")" alt="#"></a>
+            </div>
+            <!-- /End Single Banner  -->
+        </div>
+    </div>
+</section>
+<!-- End Small Banner -->
+<!-- Start Product Area -->
+@Html.Action("FeaturedBrandsPartial", "Home")
+<!-- End Product Area -->
+<!-- Start Most Popular -->
+@Html.Action("HotItemPartial", "Home")
+<!-- End Most Popular Area -->
+<!-- Start Shop Home List  -->

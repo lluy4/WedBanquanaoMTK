@@ -1,0 +1,21 @@
+﻿@using DOAN.Models
+
+
+@{
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+
+}
+
+
+@if (user != null)
+{
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img src="@Url.Content("~/assets/admin/hinhnd/"+user.Avatar)" style="width:40px; height:40px" class="rounded-circle" alt="User Image">
+        </div>
+        <div class="info">
+            <a href="#" class="d-block">@user.HoTen</a>
+        </div>
+    </div>
+}
+

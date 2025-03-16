@@ -1,0 +1,77 @@
+﻿@using DOAN.Models;
+@model LOAISANPHAM
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Trang chu</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","QuanLyLoaiSP")">Thuong hieu</a></li>
+            <li class="breadcrumb-item active">Them</li>
+        </ol>
+    </div>
+}
+
+@section script{
+    <script type="text/javascript">
+        
+    </script>
+
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <!-- left column -->
+            <div class="col-md-10">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thêm</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    @using (Html.BeginForm("Create", "QuanLyLoaiSP", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="card-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.TenLoai, htmlAttributes: new { @for = "inputName" })
+                                @Html.TextBoxFor(model => model.TenLoai, new { @type = "text", @class = "form-control", @id = "inputName", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.TenLoai, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DanhMuc)
+                                @Html.DropDownList("DanhMuc", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DanhMuc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary float-right">Lưu</button>
+                        </div>
+                    }
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--/.col (left) -->
+
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+
+

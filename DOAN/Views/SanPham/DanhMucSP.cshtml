@@ -1,0 +1,32 @@
+﻿@using DOAN.Models;
+@model IEnumerable<SANPHAM>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="single-product">
+                <div class="product-img">
+                    <a href="@Url.Action("Index","SanPham",new {id=item.IdSP})">
+                        <img style="width:550; height:750" class="default-img" src="@Url.Content("~/assets/client/hinhsp/"+item.THUONGHIEU.TenTH.ToLower()+"/"+item.AnhSP)" alt="#">
+                        <img style="width:550; height:750" class="hover-img" src="@Url.Content("~/assets/client/hinhsp/"+item.THUONGHIEU.TenTH.ToLower()+"/"+item.AnhSP)" alt="#">
+                    </a>
+                    <div class="button-head">
+                        <div class="product-action pr-1">
+                        </div>
+                        <div class="product-action-2 pl-1">
+                            @Ajax.ActionLink("THÊM VÀO GIỎ HÀNG","ThemGioHangAjax","GioHang", new { MaSP = item.IdSP, strURL = Request.Url.ToString() }, new AjaxOptions { HttpMethod="GET", UpdateTargetId= "iconGioHang", InsertionMode=InsertionMode.Replace})
+                        </div>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3><a href="@Url.Action("Index","SanPham",new {id=item.IdSP})">@item.TenSP</a></h3>
+                    <div class="product-price">
+                        <span style="color:#EB395F;">@Url.Content(((Int32)(item.GiaGoc*@item.LoiNhuan)).ToString()) <sup>đ</sup></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

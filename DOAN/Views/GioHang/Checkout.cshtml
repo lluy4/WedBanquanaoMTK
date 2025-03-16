@@ -1,0 +1,214 @@
+﻿@using DOAN.Models;
+@model NGUOIDUNG
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+    var maKM = ViewBag.MaKM;
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li><a href="@Url.Action("XemGioHang","GioHang")">Giỏ hàng<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Thanh toán và đặt mua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Checkout -->
+<section class="shop checkout section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                @if (ViewBag.Error == 1)
+                {
+                    <div class="alert alert-warning">
+                        <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        Quá trình thực hiện thất bại.
+                    </div>
+                }
+                else if (ViewBag.Error == 2)
+                {
+                    <div class="alert alert-warning">
+                        <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        Vui lòng kiểm tra lại thông tin đã nhập.
+                    </div>
+                }
+                else if (ViewBag.Error == -1)
+                {
+                    <div class="alert alert-success">
+                        Quá trình thực hiện thành công.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="checkout-form">
+                    <div class="reply">
+                        <div class="reply-head">
+                            <h2 class="reply-title">
+                                THAY ĐỔI THÔNG TIN VẬN CHUYỂN
+                            </h2>
+                        </div>
+                    </div>
+                    <!-- Form -->
+                    @using (Html.BeginForm("ChinhSuaTTVanChuyen", "GioHang", new { strURL = Request.Url.ToString(), MaKM = maKM }, FormMethod.Post, new { @class = "form mt-3" }))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.IdUser)
+                        @Html.HiddenFor(model => model.Password)
+                        @Html.HiddenFor(model => model.Password1)
+                        @Html.HiddenFor(model => model.NgayTao)
+                        @Html.HiddenFor(model => model.TT_User)
+                        @Html.HiddenFor(model => model.Username)
+                        @Html.HiddenFor(model => model.IdLoaiUser)
+                        @Html.HiddenFor(model => model.HoTen)
+                        @Html.HiddenFor(model => model.Avatar)
+                        @Html.HiddenFor(model => model.NgaySinh)
+                        @Html.HiddenFor(model => model.GioiTinh)
+                        @Html.HiddenFor(model => model.Mail)
+                        <div class="row">
+                            <div class="col-12 pt-0 mt-0 pb-0 mb-0">
+                                <div class="form-group mb-0">
+                                    <label>Số điện thoại<span>*</span></label>
+                                    <input type="text" name="SDT" placeholder="" required="required" value="@ViewBag.SDT">
+                                </div>`
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Địa chỉ<span>*</span></label>
+                                    <input type="text" name="DiaChi" placeholder="" required="required" value="@ViewBag.DiaChi">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group button">
+                            <button type="submit" class="btn">THAY ĐỔI</button>
+                        </div>
+                    }
+                    <!--/ End Form -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="order-details">
+                    <!-- Order Widget -->
+                    <div class="single-widget">
+                        <h2>TỔNG GIỎ HÀNG</h2>
+                        <div class="content">
+                            <ul>
+                                <li>Tạm tính<span>@ViewBag.TongTien</span></li>
+                                <li>(+) Giảm giá<span>@ViewBag.GiamGia</span></li>
+                                <li>(+) Phí vận chuyển<span>@ViewBag.TienVanChuyen</span></li>
+                                <li class="last">Thành tiền<span>@ViewBag.ThanhToan</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/ End Order Widget -->
+                    <!-- Order Widget -->
+                    @using (Html.BeginForm("DatHang", "GioHang", new { strURL = Request.Url.ToString(), MaKM = maKM }))
+                    {
+                        <div class="single-widget">
+                            <h2>Hình thức thanh toán</h2>
+                            <div class="content ml-3 mt-4">
+                                <div class="form-group">
+                                    <input name="vanchuyen" style="width:50px" value=True type="radio" checked><label>Thanh toán tiền mặt khi nhận hàng</label><br />
+                                    @*<input name="vanchuyen" style="width:50px" value=False type="radio"><label>Thanh toán bằng ví Sociolla</label>*@
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ End Order Widget -->
+                        <!-- Button Widget -->
+                        <div class="single-widget get-button">
+                            <div class="content">
+                                <div class="button">
+                                    <button type="submit" class="btn">ĐẶT MUA</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ End Button Widget -->
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--/ End Checkout -->
+<!-- Start Shop Services Area  -->
+<section class="shop-services section home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-rocket"></i>
+                    <h4>Free shiping</h4>
+                    <p>Orders over $100</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-reload"></i>
+                    <h4>Free Return</h4>
+                    <p>Within 30 days returns</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-lock"></i>
+                    <h4>Sucure Payment</h4>
+                    <p>100% secure payment</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-tag"></i>
+                    <h4>Best Peice</h4>
+                    <p>Guaranteed price</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Services -->
+<!-- Start Shop Newsletter  -->
+<section class="shop-newsletter section">
+    <div class="container">
+        <div class="inner-top">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-12">
+                    <!-- Start Newsletter Inner -->
+                    <div class="inner">
+                        <h4>Newsletter</h4>
+                        <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+                        <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                            <input name="EMAIL" placeholder="Your email address" required="" type="email">
+                            <button class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                    <!-- End Newsletter Inner -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Newsletter -->

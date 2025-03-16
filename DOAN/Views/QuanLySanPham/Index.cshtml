@@ -1,0 +1,208 @@
+﻿@using DOAN.Models;
+
+@model IEnumerable<SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var ThuongHieu = ViewBag.ThuongHieu as THUONGHIEU;
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+}
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+            <li class="breadcrumb-item active">San pham</li>
+        </ol>
+    </div>
+}
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $(".DeleteId").prepend("<i class='far fa-trash-alt'></i>");
+
+    </script>
+}
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                @if (ViewBag.Error == 1)
+                {
+                    <div class="alert alert-warning">
+                        <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        Sản phẩm đã được nhập hàng vào hôm nay. Không thể cập nhật lại.
+                    </div>
+                }
+                else if (ViewBag.Error == 2)
+                {
+                    <div class="alert alert-warning">
+                        <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        Quá trình thực hiện thất bại.
+                    </div>
+                }
+                else if (ViewBag.Error == -1)
+                {
+                    <div class="alert alert-success">
+                        Quá trình thực hiện thành công.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Sản phẩm</h3>
+                        <!-- Button trigger modal -->
+                        @if (ThuongHieu != null)
+                        {
+                            if (user != null && user.IdLoaiUser == 3)
+                            {
+                                <a class="btn btn-success float-right" href="@Url.Action("Create","QuanLySanPham",new {idTH=ThuongHieu.IdTH})">
+                                    Thêm
+                                </a>
+                            }
+                            <a class="btn btn-info float-right mr-2" href="@Url.Action("PhieuNhap","NhapHang",new {idTH=ThuongHieu.IdTH})">
+                                Nhập hàng
+                            </a>
+                        }
+
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @using (Html.BeginForm("Index", "QuanLySanPham", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="form-group">
+                                            @Html.DropDownList("ddlThuongHieu", ViewBag.items as SelectList, "Tất cả các sản phẩm", new { @class = "form-control", @onchange = "this.form.submit();" })
+                                        </div>
+                                    }
+                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr>
+                                                <th>@Html.DisplayNameFor(model => model.TenSP)</th>
+                                                @if (user != null && user.IdLoaiUser == 3)
+                                                {
+                                                    <th>@Html.DisplayNameFor(model => model.GiaGoc)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.LoiNhuan)</th>
+                                                }
+                                                else
+                                                {
+                                                    <th>Giá bán</th>
+                                                }
+                                                <th>@Html.DisplayNameFor(model => model.DonVi)</th>
+                                                <th>@Html.DisplayNameFor(model => model.SoLuong)</th>
+                                                <th>@Html.DisplayNameFor(model => model.LOAISANPHAM.TenLoai)</th>
+                                                <th>@Html.DisplayNameFor(model => model.TINHTRANG1.TenTT)</th>
+                                                <th></th>
+                                                @if (user != null && user.IdLoaiUser == 3)
+                                                {
+                                                    <th></th>
+                                                }
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr id="row1_@item.IdSP">
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TenSP)
+                                                </td>
+                                                @if (user != null && user.IdLoaiUser == 3)
+                                                {
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.GiaGoc)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LoiNhuan)
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@Url.Content(((Int32)(item.GiaGoc*item.LoiNhuan)).ToString())</td>
+                                                }
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DonVi)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SoLuong)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.LOAISANPHAM.TenLoai)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TINHTRANG1.TenTT)
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <a class="btn btn-success" href="@Url.Action("NhapHang","QuanLySanPham",new { id=item.IdSP})">
+                                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @if (user != null && user.IdLoaiUser == 3)
+                                                {
+                                                    <td>
+                                                        <div class="btn-group btn-group-sm">
+                                                            <a class="btn btn-info" href="@Url.Action("Edit","QuanLySanPham",new { id=item.IdSP})">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </a>
+                                                            @Ajax.ActionLink(" ", "Delete", new { id = item.IdSP }, new AjaxOptions { Confirm = "Bạn có muốn xoá sản phẩm này?", OnComplete = "$('#row1_" + @item.IdSP + "').remove()", HttpMethod = "Post" }, new { @class = "btn btn-danger DeleteId" })
+
+                                                        </div>
+
+                                                    </td>
+                                                }
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</a>
+

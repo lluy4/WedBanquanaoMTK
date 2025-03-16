@@ -1,0 +1,244 @@
+﻿@using DOAN.Models
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+    var hoadon = ViewBag.HoaDon as HOADON;
+    var listCT = ViewBag.ChiTiet as IEnumerable<CHITIETHD>;
+    int tongtiensp = 0;
+    int thanhtoan = 0;
+    var doitacgh = ViewBag.DoiTacGH as DTGIAOHANG;
+    int tienvanchuyen = hoadon.TienVanChuyen ?? 20000;
+}
+
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+}
+
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="@Url.Action("ThongTinCaNhan","Home")">Tài khoản<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="@Url.Action("ThongTinHoaDon","Home")">Đơn hàng của tôi<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Chi tiết đơn hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Product Style -->
+<section class="product-area shop-sidebar shop section">
+    <div class="container" style="min-height:700px">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                    <!-- Single Widget -->
+                    <h3 style="display:block; border-bottom:3px solid #EB395F; width:47%;  margin-bottom:10px"><small>TÀI KHOẢN</small></h3>
+                    <a href="@Url.Action("ThongTinCaNhan","Home")"><div class="bthuong">Thông tin tài khoản</div></a>
+                    <a href="@Url.Action("ThongTinDonHang","Home")"><div class="hdong"> Quản lý đơn hàng</div></a>
+                    <a href="@Url.Action("ThayDoiMatKhau","Home")"><div class="bthuong"> Thay đổi mật khẩu</div></a>
+                    <a href="@Url.Action("DangXuat","Home")"><div class="bthuong">Đăng xuất</div></a>
+                    <!--/ End Single Widget -->
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-12 ml-5">
+                @if (ViewBag.Error == -1)
+                {
+                    <div class="alert alert-success ">
+                        Quá trình thực hiện thành công
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                else if (ViewBag.Error == 1)
+                {
+                    <div class="alert alert-warning ">
+                        Quá trình thực hiện thất bại
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="row">
+                    <h4 style="margin-bottom:20px; margin-top:5px; border-left:5px solid #EB395F; padding:0px 3px 0px 5px"><small>ĐƠN HÀNG CỦA TÔI</small></h4>
+                    <div class="col-12">
+                        <!-- Main content -->
+                        <div class="invoice p-3 mb-3">
+                            <!-- title row -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6>
+                                        Sociolla
+                                        <small class="float-right">Ngày đặt hàng: @hoadon.NgayDH</small>
+                                    </h6>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- info row -->
+                            <div class="row invoice-info">
+                                <!-- /.col -->
+                                <div class="col-sm-8 invoice-col mt-3">
+                                    <h6><small>Chi tiết hoá đơn</small></h6>
+                                    <address>
+                                        <strong>@hoadon.NGUOIDUNG.HoTen</strong><br>
+                                        @hoadon.DiaChi<br>
+                                        SĐT: @hoadon.SDT<br>
+                                        Email: @hoadon.NGUOIDUNG.Mail
+                                    </address>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4 invoice-col mt-3">
+                                    <b>Mã hoá đơn:</b> #@hoadon.IdHD<br>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                            <!-- Table row -->
+                            <div class="row">
+                                <div class="col-12 table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Sản phẩm</th>
+                                                <th>Giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Tạm tính</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in listCT)
+                                            {
+                                                <tr>
+                                                    <td>@item.SANPHAM.TenSP</td>
+                                                    <td>@Url.Content(((Int32)(item.GiaGoc * item.LoiNhuan)).ToString())</td>
+                                                    <td>@item.SoLuong</td>
+                                                    @{
+                                                        tongtiensp += (Int32)((item.GiaGoc * item.LoiNhuan) * item.SoLuong);
+                                                    }
+                                                    <td>@Url.Content(((Int32)(item.GiaGoc * item.LoiNhuan * @item.SoLuong)).ToString())</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row">
+                                <!-- accepted payments column -->
+                                <div class="col-6">
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-6">
+                                    @if (hoadon.DaThanhToan == true)
+                                    {
+                                        <p style="font-size:15px; margin-top:5px">Đã thanh toán</p>
+                                    }
+                                    else
+                                    {
+                                        <p style="font-size:15px; margin-top:5px">Chưa thanh toán</p>
+                                    }
+
+
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="width:50%">Tạm tính:</th>
+                                                    <td>@tongtiensp</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Giảm giá:</th>
+                                                    @if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 1)
+                                                    {
+                                                        <td>@Url.Content(hoadon.KHUYENMAI.GiaTri.ToString() + "%")</td>
+                                                    }
+                                                    else if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 2)
+                                                    {
+                                                        <td>@Url.Content(hoadon.KHUYENMAI.GiaTri.ToString() + "đ")</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><span>0</span></td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <th>Phí vận chuyển:</th>
+                                                    <td>@tienvanchuyen</td>
+                                                </tr>
+                                                @{
+                                                    if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 1)
+                                                    {
+                                                        thanhtoan = (Int32)(tongtiensp * (1 - hoadon.KHUYENMAI.GiaTri * 1.0 / 100) + hoadon.DTGIAOHANG.TienVanChuyen);
+                                                    }
+                                                    else if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 2)
+                                                    {
+                                                        thanhtoan = (Int32)(tongtiensp + tienvanchuyen - hoadon.KHUYENMAI.GiaTri);
+                                                    }
+                                                    else
+                                                    {
+                                                        thanhtoan = (Int32)(tongtiensp + tienvanchuyen);
+                                                    }
+
+                                                }
+                                                <tr>
+                                                    <th>Tổng cộng:</th>
+                                                    <td>@thanhtoan</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                            <!-- this row will not appear when printing -->
+                            <div class="row no-print">
+                                <div class="col-12">
+
+                                    @if (hoadon.TinhTrang == 4)
+                                    {
+                                        <a type="button" class="btn btn-warning float-right" style="margin-right: 5px;" onclick="return confirm('Bạn có chắc chắn huỷ bỏ đơn hàng này?');" href="@Url.Action("HuyBo","Home",new { id = hoadon.IdHD })">
+                                            Huỷ bỏ
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.invoice -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Product Style 1  -->

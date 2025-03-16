@@ -1,0 +1,136 @@
+﻿@using DOAN.Models;
+@model IEnumerable<NGUOIDUNG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+            <li class="breadcrumb-item active">Nguoi dung</li>
+        </ol>
+    </div>
+}
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $(".DeleteId").prepend("<i class='far fa-trash-alt'></i>");
+
+    </script>
+}
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Người dùng</h3>
+                        <a class="btn btn-success float-right" href="@Url.Action("Create","NguoiDung")">
+                            Thêm
+                        </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @using (Html.BeginForm("Index", "NguoiDung", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="form-group">
+                                            @Html.DropDownList("ddlNguoiDung", ViewBag.items as SelectList, "Tất cả người dùng ", new { @class = "form-control", @onchange = "this.form.submit();" })
+                                        </div>
+                                    }
+                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().HoTen)</th>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().NgaySinh)</th>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().GioiTinh)</th>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().DiaChi)</th>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().SDT)</th>
+                                                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Mail)</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr id="row2_@item.IdUser">
+                                                <td>
+                                                    <a href="@Url.Action("ChiTietNguoiDung","NguoiDung",new {id=item.IdUser})">
+                                                        @Html.DisplayFor(modelItem => item.HoTen)
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NgaySinh, "ShortDateTime")
+                                                </td>
+                                                <td>
+                                                    @Html.CheckBoxFor(modelItem => item.GioiTinh, new { @disabled = "disabled" })
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SDT)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Mail)
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <a class="btn btn-info" href="@Url.Action("Edit","NguoiDung",new { id=item.IdUser })">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        @Ajax.ActionLink(" ", "Delete", new { id = item.IdUser }, new AjaxOptions { Confirm = "Bạn có muốn xoá người dùng này?", OnComplete = "$('#row2_" + @item.IdUser + "').remove()", HttpMethod = "Post" }, new { @class = "btn btn-danger DeleteId" })
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</a>

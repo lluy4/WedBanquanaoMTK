@@ -1,0 +1,75 @@
+﻿@using DOAN.Models;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<SANPHAM>
+@{
+    ViewBag.Title = "SanPhamTheoLoai";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+
+    var LoaiSP = (LOAISANPHAM)ViewBag.Loai;
+    var TH = (THUONGHIEU)ViewBag.TH;
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="@Url.Action("SanPhamTheoLoai","SanPham",new {idLoai=LoaiSP.IdLoaiSP})">@LoaiSP.TenLoai.ToLower()</a></li>
+                        @if (TH != null)
+                        {
+                            <li class="active"><a href="@Url.Action("SanPhamTheoLoai","SanPham",new {idLoai=LoaiSP.IdLoaiSP, idTH=TH.IdTH})"><i class="ti-arrow-right"></i>@TH.TenTH.ToLower()</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!--Product Style-->
+<section class="product-area shop-sidebar shop section">
+    <div class="container" style="min-height:800px">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                    @Html.Action("BrandsPartial", "SanPham", new { loai = LoaiSP })
+
+                    
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Shop Top-->
+                        <div class="shop-top">
+                            <div class="shop-shorter">
+                                
+                            </div>
+                            <ul class="view-mode">
+                                <li class="active"><a href="#"><i class="fa fa-th-large"></i></a></li>
+                                <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--End Shop Top-->
+                    </div>
+                </div>
+                @Html.Action("DanhMucSP", "SanPham", new { listSP = Model })
+                @if(Model.PageCount>1)
+                {
+                    <div class="float-right text-right mt-lg-5 align-bottom">
+                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                        @Html.PagedListPager(Model, page => Url.Action("SanPhamTheoLoai", new { page = page, @idLoai = ViewBag.IdLoai, @idTH = ViewBag.IdTH }))
+                    </div>
+                }
+                
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!--End Product Style-->

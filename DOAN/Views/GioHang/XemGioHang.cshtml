@@ -1,0 +1,205 @@
+﻿@using DOAN.Models;
+@model IEnumerable<GIOHANG>
+
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+    string strKM = ViewBag.KhuyenMai;
+}
+
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Giỏ hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+@if (ViewBag.TongSoLuong > 0)
+{
+
+    <!-- Shopping Cart -->
+    <div class="shopping-cart section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Shopping Summery -->
+                    <table class="table shopping-summery">
+                        <thead>
+                            <tr class="main-hading">
+                                <th colspan="2">SẢN PHẨM</th>
+                                
+                                <th class="text-center">GIÁ</th>
+                                <th class="text-center">SỐ LƯỢNG</th>
+                                <th class="text-center">TẠM TÍNH</th>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="image" data-title="No"><img src="@Url.Content("~/assets/client/hinhsp/"+item.SANPHAM.THUONGHIEU.TenTH.ToLower()+"/"+item.SANPHAM.AnhSP)" alt="#"></td>
+                                    <td class="product-des" data-title="Description">
+                                        <p class="product-name"><a href="#">@item.SANPHAM.TenSP</a></p>
+                                        <p class="product-des"></p>
+                                    </td>
+                                    <td class="price" data-title="Price"><span>@Url.Content((item.SANPHAM.GiaGoc * item.SANPHAM.LoiNhuan).ToString())</span></td>
+                                    <td class="qty" data-title="Qty">
+                                        <!-- Input Order -->
+                                        <div class="input-group">
+
+                                            <div class="button minus text-center" style="width: 44px;">
+                                                <a title="minus" style="width: 44px; height: 47px; line-height: 50px; border-radius: 0px; background: transparent; color: #282828; border: none; font-size: 12px; " href="@Url.Action("GiamGioHang","GioHang", new {MaSP=item.IdSP,strURL=Request.Url.ToString() })"><i class="ti-minus"></i></a>
+                                            </div>
+                                            <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="100" value=@item.SoLuong readonly>
+
+                                            <div class="button plus text-center" style="width: 44px;">
+                                                <a title="plus" style="width: 44px; height: 47px; line-height: 50px; border-radius: 0px; background: transparent; color: #282828; border: none; font-size: 12px; " href="@Url.Action("ThemGioHang","GioHang", new {MaSP=item.IdSP,strURL=Request.Url.ToString() })"><i class="ti-plus"></i></a>
+
+                                            </div>
+                                        </div>
+                                        <!--/ End Input Order -->
+                                    </td>
+                                    @{
+                                        int gia = (int)(item.SANPHAM.GiaGoc * item.SANPHAM.LoiNhuan * item.SoLuong);
+                                    }
+                                    <td class="total-amount" data-title="Total"><span>@gia</span></td>
+                                    <td class="action" data-title="Remove"><a href="@Url.Action("XoaGioHang","GioHang", new {MaSP=item.IdSP,strURL=Request.Url.ToString() })"><i class="ti-trash remove-icon"></i></a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    <!--/ End Shopping Summery -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Total Amount -->
+                    <div class="total-amount">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-5 col-12">
+                                <div class="left">
+                                    <div class="coupon">
+                                        @using (Html.BeginForm("XemGioHang", "GioHang"))
+                                        {
+                                            <input name="MaKM" placeholder="NHẬP MÃ KHUYẾN MÃI" value="@ViewBag.KhuyenMai">
+                                            <button class="btn" type="submit">ÁP DỤNG</button>
+                                        }
+                                    </div>
+                                    <div class="checkbox">
+                                        @if (ViewBag.IsKM == 1)
+                                        {
+                                            <span>Không tồn tại mã khuyễn mãi này</span>
+                                        }
+                                        @if (ViewBag.IsKM == 2)
+                                        {
+                                            <span>Mã khuyến mãi này đã hết hạn</span>
+                                        }
+                                        @if (ViewBag.IsKM == 3)
+                                        {
+                                            <span>Áp dụng mã khuyến mãi thành công</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-7 col-12">
+                                <div class="right">
+                                    <ul>
+                                        <li>Tạm tính<span>@ViewBag.TongTien</span></li>
+                                        <li>Phí vận chuyển<span>@ViewBag.TienVanChuyen</span></li>
+                                        @if (ViewBag.IsKM == 3)
+                                        {
+                                            <li>Giảm giá<span>@ViewBag.GiamGia</span></li>
+                                        }
+
+                                        <li class="last">Thành tiền<span>@ViewBag.ThanhToan</span></li>
+                                    </ul>
+                                    <div class="button5">
+                                        <a href="@Url.Action("Checkout","GioHang",new { strURL=Request.Url.ToString(),MaKM=strKM})" class="btn">TIẾN HÀNH ĐẶT HÀNG</a>
+                                        <a href="@Url.Action("Index","Home")" class="btn">TIẾP TỤC MUA SẮM</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ End Total Amount -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Shopping Cart -->
+
+    <!-- Start Shop Services Area -->
+    <section class="shop-services section home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-rocket"></i>
+                        <h4>Nhanh chóng</h4>
+                        <p>Chi phí rẻ</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-reload"></i>
+                        <h4>Được phép kiểm tra</h4>
+                        <p>Trả hàng tại chỗ</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-lock"></i>
+                        <h4>Thanh toán bảo mật</h4>
+                        <p>100% bảo mật</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-tag"></i>
+                        <h4>Giá tốt nhất</h4>
+                        <p>Đảm bảo chất lượng</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop Services Area -->
+
+}
+else
+{
+    <div class="shopping-cart section">
+        <div class="container" style="height:300px">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-warning">
+                        Không có sản phẩm nào trong giỏ hàng của bạn.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

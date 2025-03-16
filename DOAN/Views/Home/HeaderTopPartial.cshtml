@@ -1,0 +1,113 @@
+﻿@using DOAN.Models;
+@{ 
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+}
+<!-- Topbar -->
+<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-12">
+                <!-- Top Left -->
+                <div class="top-left">
+                    <ul class="list-main">
+                        @if (user!=null && (user.IdLoaiUser == 2 || user.IdLoaiUser == 3))
+                        {
+                            <li><a href="@Url.Action("Index","Dashboard")">Kênh người bán</a></li>
+                        }
+                        else if (user != null && user.IdLoaiUser == 4)
+                        {
+                            <li><a href="@Url.Action("Index","GiaoHang")">Kênh vận chuyển</a></li>
+                        }
+
+
+                    </ul>
+                </div>
+                <!--/ End Top Left -->
+            </div>
+            <div class="col-lg-8 col-md-12 col-12">
+                <!-- Top Right -->
+                <div class="right-content">
+                    <ul class="list-main">
+                        @if (user != null)
+                        {
+                            <li><i class="ti-user"></i> <a href="@Url.Action("ThongTinCaNhan","Home")">@user.HoTen</a>  </li>
+                            <li><i class="ti-power-off"></i><a href="@Url.Action("DangXuat","Home")">Đăng xuất</a></li>
+                        }
+
+                    </ul>
+                </div>
+                <!-- End Top Right -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Topbar -->
+<div class="middle-inner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-12">
+                <!-- Logo -->
+                <div class="logo col-lg-12 col-md-12 col-6">
+                    <a href="@Url.Action("Index","Home")"><img src="~/assets/client/images/logo.png" alt="logo"></a>
+                </div>
+                <!--/ End Logo -->
+                <!-- Search Form -->
+                <div class="search-top">
+                    <div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
+                    <!-- Search Form -->
+                    <div class="search-top">
+                        
+                        <form class="search-form">
+                            <input type="text" placeholder="Tìm sản phẩm ..." name="search">
+                            <button value="search" type="submit"><i class="ti-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <!--/ End Search Form -->
+                <div class="mobile-nav"></div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-12">
+                <div class="search-bar-top">
+                    <div class="search-bar">
+                        <select>
+                            <option selected="selected">Tất cả</option>
+                        </select>
+                        @using (Html.BeginForm("TimKiemTuKhoa", "TimKiem"))
+                        {
+                            <input name="sTuKhoa" placeholder="Tìm sản phẩm ....." type="search">
+                            <button class="btnn" type="submit"><i class="ti-search"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-12">
+                <div class="right-bar">
+                    <!-- Search Form -->
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    </div>
+
+
+                    <div class="sinlge-bar">
+                        @if (Session["TaiKhoan"] != null && Session["TaiKhoan"].ToString() != "")
+                        {
+                            <a href="@Url.Action("ThongTinCaNhan","Home")" class="single-icon" data-toggle="tooltip" data-placement="bottom" title="Thông tin tài khoản"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("DangNhap","Home", new {strURL=Request.Url.ToString() })" class="single-icon" data-toggle="tooltip" data-placement="bottom" title="Login"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                        }
+                    </div>
+                    @Html.Action("GioHangPartial", "GioHang")
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

@@ -1,0 +1,205 @@
+﻿@using DOAN.Models
+
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var hoadon = ViewBag.HoaDon as HOADON;
+    var listCT = ViewBag.ChiTiet as IEnumerable<CHITIETHD>;
+    int tongtiensp = 0;
+    int thanhtoan = 0;
+    var doitacgh = ViewBag.DoiTacGH as DTGIAOHANG;
+    int tienvanchuyen = hoadon.TienVanChuyen ?? 20000;
+}
+
+@section script{
+    <script>
+        $('.print').click(function () {
+            window.addEventListener("load", window.print());
+        });
+
+    </script>
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","QLHoaDon")">Hoa don</a></li>
+                    <li class="breadcrumb-item active">Chi tiet</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <!-- Main content -->
+                <div class="invoice p-3 mb-3">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>
+                                <i class="fas fa-globe"></i> Sociolla
+                                <small class="float-right">Ngày: @hoadon.NgayDH</small>
+                            </h4>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>Sociolla</strong><br>
+                                Tầng 15, Tòa B, Tòa nhà Viettel<br>
+                                285 Cách Mạng Tháng Tám, Phường 12<br>
+                                Quận 10, Thành phố Hồ Chí Minh, Việt Nam<br>
+                                Email: cs.vn@sociolla.com
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>@hoadon.NGUOIDUNG.HoTen</strong><br>
+                                @hoadon.DiaChi<br>
+                                SĐT: @hoadon.SDT<br>
+                                Email: @hoadon.NGUOIDUNG.Mail
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <b>Mã hoá đơn:</b> @hoadon.IdHD<br>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá bán</th>
+                                        <th>Tạm tính</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in listCT)
+                                    {
+                                        <tr>
+                                            <td>@item.SANPHAM.TenSP</td>
+                                            <td>@item.SoLuong</td>
+                                            <td>@Url.Content(((Int32)(item.GiaGoc*item.LoiNhuan)).ToString())</td>
+                                            @{
+                                                tongtiensp += (Int32)(item.GiaGoc * item.LoiNhuan * item.SoLuong);
+                                            }
+                                            <td>@Url.Content(((Int32)(item.GiaGoc * item.LoiNhuan * @item.SoLuong)).ToString())</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-6">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6">
+                            @if (hoadon.DaThanhToan == true)
+                            {
+                                <p class="lead">Đã thanh toán</p>
+                            }
+                            else
+                            {
+                                <p class="lead">Chưa thanh toán </p>
+                            }
+
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Tạm tính:</th>
+                                            <td>@tongtiensp</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Giảm giá:</th>
+                                            @if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 1)
+                                            {
+                                                <td>@Url.Content(hoadon.KHUYENMAI.GiaTri.ToString() + "%")</td>
+                                            }
+                                            else if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 2)
+                                            {
+                                                <td>@Url.Content(hoadon.KHUYENMAI.GiaTri.ToString() + "đ")</td>
+                                            }
+                                            else
+                                            {
+                                                <td><span>0</span></td>
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <th>Phí vận chuyển:</th>
+                                            <td>@tienvanchuyen</td>
+                                        </tr>
+                                        @{
+                                            if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 1)
+                                            {
+                                                thanhtoan = (Int32)(tongtiensp * (1 - hoadon.KHUYENMAI.GiaTri * 1.0 / 100) + hoadon.DTGIAOHANG.TienVanChuyen);
+                                            }
+                                            else if (hoadon.IdKM != null && hoadon.KHUYENMAI.LoaiKM == 2)
+                                            {
+                                                thanhtoan = (Int32)(tongtiensp + tienvanchuyen - hoadon.KHUYENMAI.GiaTri);
+                                            }
+                                            else
+                                            {
+                                                thanhtoan = (Int32)(tongtiensp + tienvanchuyen);
+                                            }
+
+                                        }
+                                        <tr>
+                                            <th>Tổng cộng:</th>
+                                            <td>@thanhtoan</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <button class="btn btn-default print"><i class="fas fa-print"></i> In hoá đơn</button>
+                            @if (hoadon.TinhTrang == 4)
+                            {
+                                <a href="@Url.Action("XacNhan","QLHoaDon",new { id = hoadon.IdHD })" type="button" class="btn btn-success float-right" onclick="return confirm('Bạn có chắc chắn xác nhận đơn hàng này?');" >
+                                    Xác nhận
+                                </a>
+                                <a href="@Url.Action("HuyBo","QLHoaDon",new { id = hoadon.IdHD })" type="button" class="btn btn-warning float-right" style="margin-right: 5px;" onclick="return confirm('Bạn có chắc chắn huỷ bỏ đơn hàng này?');" >
+                                    Huỷ bỏ
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- /.invoice -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+

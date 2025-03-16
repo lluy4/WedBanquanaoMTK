@@ -1,0 +1,139 @@
+﻿@using DOAN.Models
+@model IEnumerable<LOAISANPHAM>
+
+@{ 
+    List<String> listDM = new List<string>();
+    listDM.AddRange(new string[] { "Áo sơ mi", "Quần tây", "Vest", "Áo thun", "Quần thun", "Phụ kiện" });
+    IEnumerable<SANPHAM> listSP = ((IEnumerable<SANPHAM>)ViewBag.listSP).OrderByDescending(x=>x.SoLanMua);
+}
+
+
+<!-- Header Inner -->
+<div class="header-inner">
+    <div class="container">
+        <div class="cat-nav-head">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="all-category">
+                        <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>DANH MỤC</h3>
+                        <ul class="main-category">
+
+                            <li class="main-mega">
+                                <a href="#">THƯƠNG HIỆU <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                <ul class="mega-menu">
+                                    <li class="single-menu align-top">
+                                        <a href="#" class="title-link mb-0">Thương hiệu</a>
+                                        <div class="inner-link">
+                                            @foreach (var item in listSP.GroupBy(x => x.THUONGHIEU).Skip(4))
+                                            {
+                                                <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})">@item.Key.TenTH.ToLower() </a>
+                                            }
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="single-menu">
+                                        <a href="#" class="title-link">Thương hiệu nổi bật</a>
+                                        <div class="image">
+                                            @foreach (var item in listSP.GroupBy(x => x.THUONGHIEU).Take(1))
+                                            {
+                                                if (item.Key.AnhTH != null && item.Key.AnhTH!="")
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img style="width:225px; height:155px" src="@Url.Content("~/assets/client/hinhsp/"+item.Key.TenTH.ToLower()+"/"+item.Key.AnhTH)" alt="#"></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img src="https://via.placeholder.com/225x155" alt="#"></a>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="image mt-3">
+                                            @foreach (var item in listSP.GroupBy(x => x.THUONGHIEU).Skip(1).Take(1))
+                                            {
+                                                if (item.Key.AnhTH != null && item.Key.AnhTH != "")
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img style="width:225px; height:155px" src="@Url.Content("~/assets/client/hinhsp/"+item.Key.TenTH.ToLower()+"/"+item.Key.AnhTH)" alt="#"></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img src="https://via.placeholder.com/225x155" alt="#"></a>
+                                                }
+                                            }
+                                        </div>
+                                    </li>
+                                    <li class="single-menu">
+                                        <div class="image">
+                                            @foreach (var item in listSP.GroupBy(x => x.THUONGHIEU).Skip(2).Take(1))
+                                            {
+                                                if (item.Key.AnhTH != null && item.Key.AnhTH != "")
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img style="width:225px; height:155px" src="@Url.Content("~/assets/client/hinhsp/"+item.Key.TenTH.ToLower()+"/"+item.Key.AnhTH)" alt="#"></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img src="https://via.placeholder.com/225x155" alt="#"></a>
+                                                }
+                                            }
+                                            
+                                        </div>
+                                        <div class="image mt-3">
+                                            @foreach (var item in listSP.GroupBy(x => x.THUONGHIEU).Skip(3).Take(1))
+                                            {
+                                                if (item.Key.AnhTH != null && item.Key.AnhTH != "")
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img style="width:225px; height:155px" src="@Url.Content("~/assets/client/hinhsp/"+item.Key.TenTH.ToLower()+"/"+item.Key.AnhTH)" alt="#"></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=item.Key.IdTH})"><img src="https://via.placeholder.com/225x155" alt="#"></a>
+                                                }
+                                            }
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                            @foreach (var item in Model.GroupBy(x=>x.DanhMuc))
+                            {
+                                
+                                <li>
+                                    <a href="#">@listDM[item.Key-1] <i class="fa fa-angle-right align-baseline" aria-hidden="true"></i></a>
+                                    <ul class="sub-category">
+                                        @foreach (var i in Model)
+                                        {
+                                            if (i.DanhMuc == item.Key)
+                                            {
+                                                <li><a href="@Url.Action("SanPhamTheoLoai","SanPham",new {idLoai=i.IdLoaiSP})">@i.TenLoai</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                            }
+
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-12">
+                    <div class="menu-area">
+                        <!-- Main Menu -->
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="navbar-collapse">
+                                <div class="nav-inner">
+                                    <ul class="nav main-menu menu navbar-nav">
+                                        <li class="active"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <!--/ End Main Menu -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ End Header Inner -->

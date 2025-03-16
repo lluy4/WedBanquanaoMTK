@@ -1,0 +1,56 @@
+﻿@using DOAN.Models;
+@model IEnumerable<LOAISANPHAM>
+
+@{
+    var TH = (THUONGHIEU)ViewBag.TH;
+
+    List<String> listDM = new List<string>();
+    listDM.AddRange(new string[] { "Áo sơ mi", "Quần tây", "Vest", "Áo thun", "Quần thun", "Phụ kiện" });
+}
+
+<!--Single Widget -->
+<div class="single-widget category">
+    <h3 class="title">DANH MỤC</h3>
+    <ul class="categor-list" id="myUL">
+
+        @foreach (var item in Model.GroupBy(x => x.DanhMuc))
+        {
+            <li class="pb-3">
+                <span class="caret">@listDM[item.Key - 1]</span>
+                <ul class="nested">
+                    @foreach (var i in Model)
+                    {
+                        if (i.DanhMuc == item.Key)
+                        {
+                            <li class="pt-1"><a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=TH.IdTH,idLoai=i.IdLoaiSP})">@i.TenLoai</a></li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </ul>
+</div>
+<!--End Single Widget -->
+<script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+    }
+</script>
+

@@ -1,0 +1,12 @@
+﻿<div id="iconGioHang" class="sinlge-bar shopping">
+    <a href="@Url.Action("XemGioHang","GioHang")" class="single-icon">
+        <i class="ti-bag"></i>
+        @if (ViewBag.TongSoLuong != 0)
+        {
+            <span class="total-count">@ViewBag.TongSoLuong</span>;
+            
+        }
+    </a>   
+</div>
+
+

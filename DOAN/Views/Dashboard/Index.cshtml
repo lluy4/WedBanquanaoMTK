@@ -1,0 +1,190 @@
+﻿@using DOAN.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+}
+
+@section style{
+
+    <script src="~/Scripts/Chart.min.js"></script>
+
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+
+}
+
+@section header{
+    <div class="col-sm-6">
+    </div><!-- /.col -->
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Trang chu</a></li>
+        </ol>
+    </div><!-- /.col -->
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.CanXacNhan</h3>
+
+                        <p>Đơn đặt hàng cần xác nhận</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="@Url.Action("Index","QLHoaDon")" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.DangKyMoi</h3>
+
+                        <p>Khách hàng đăng ký mới</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    @if (user != null && user.IdLoaiUser == 3)
+                    {
+                        <a href="@Url.Action("Index","NguoiDung")" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                    }
+                    else
+                    {
+                        <div style="height:30px"></div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@ViewBag.BiHuy</h3>
+
+                        <p>Đơn hàng bị huỷ</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="@Url.Action("Index","QLHoaDon",new {giatri=6})" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@ViewBag.ThatBai</h3>
+
+                        <p>Đơn hàng thất bại</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="@Url.Action("Index","QLHoaDon",new {giatri=11})" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <!-- ./col -->
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Thống kê năm</h5>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <div class="col-sm-8 d-inline-block ">
+                                    @Html.DropDownList("ddlNam", ViewBag.items as SelectList, new { @class = "form-control", @onchange = "this.form.submit();" })
+                                </div>
+                            </div>
+
+                            if (ViewBag.GiaTri != 0)
+                            {
+
+                                <div class="chartjs-wrapper">
+                                    <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                                    <canvas id="chartjs-0" class="chartjs" width="1539" height="769" style="display: block; height: 385px; width: 770px;"></canvas>
+                                    <script>
+                                    var values =@Html.Raw(Json.Encode(ViewBag.Value));
+                                    var labels =@Html.Raw(Json.Encode(ViewBag.Label));
+                                    new Chart(document.getElementById("chartjs-0"), { "type": "line", "data": { "labels": labels, "datasets": [{ "label": "Tổng số đơn hàng hoàn thành theo từng tháng", "data": values, "fill": false, "borderColor": "rgb(75, 192, 192)", "lineTension": 0.1 }] }, "options": {} });
+                                    </script>
+                                </div>
+                                <!-- /.chart-responsive -->
+
+                            }
+                        }
+
+                    </div>
+
+                    <!-- /.col -->
+                    <!--<div class="col-md-4">
+                        <p class="text-center">
+                            <strong>Mục tiêu tháng</strong>
+                        </p>
+
+                        <div class="progress-group">
+                            Doanh thu
+                            <span class="float-right"><b>160</b>/200</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-primary" style="width: 80%"></div>
+                            </div>
+                        </div>-->
+                    <!-- /.progress-group -->
+                    <!--<div class="progress-group">
+                        Hoàn thành đơn hàng
+                        <span class="float-right"><b>310</b>/400</span>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-danger" style="width: 75%"></div>
+                        </div>
+                    </div>-->
+                    <!-- /.progress-group -->
+                    <!--<div class="progress-group">
+                        <span class="progress-text">Khách hàng đăng ký mới</span>
+                        <span class="float-right"><b>480</b>/800</span>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-success" style="width: 60%"></div>
+                        </div>
+                    </div>-->
+                    <!-- /.progress-group -->
+                    <!--</div>-->
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- ./card-body -->
+            <div class="card-footer">
+
+                <!-- /.row -->
+            </div>
+            <!-- /.card-footer -->
+        </div>
+
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

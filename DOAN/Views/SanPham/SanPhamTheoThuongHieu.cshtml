@@ -1,0 +1,121 @@
+﻿@using DOAN.Models
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<SANPHAM>
+@{
+    ViewBag.Title = "SanPhamTheoThuongHieu";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+
+
+    var LoaiSP = (LOAISANPHAM)ViewBag.Loai;
+    var TH = (THUONGHIEU)ViewBag.TH;
+}
+
+@section style
+{
+    /* Remove default bullets */
+    ul, #myUL {
+    list-style-type: none;
+    }
+
+    /* Remove margins and padding from the parent ul */
+    #myUL {
+    margin: 0;
+    padding: 0;
+    }
+
+    /* Style the caret/arrow */
+    .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+    }
+
+    /* Create the caret/arrow with a unicode, and style it */
+    .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+    }
+
+    /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+    .caret-down::before {
+    transform: rotate(90deg);
+    }
+
+    /* Hide the nested list */
+    .nested {
+    display: none;
+    padding-left:15px;
+    padding-top:5px;
+    }
+
+    /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+    .active {
+    display: block;
+    }
+
+}
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idTH=TH.IdTH})">@TH.TenTH.ToLower()</a></li>
+                        @if (LoaiSP != null)
+                        {
+                            <li class="active"><a href="@Url.Action("SanPhamTheoThuongHieu","SanPham",new {idLoai=LoaiSP.IdLoaiSP, idTH=TH.IdTH})"><i class="ti-arrow-right"></i>@LoaiSP.TenLoai.ToLower()</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!--Product Style-->
+<section class="product-area shop-sidebar shop section">
+    <div class="container" style="min-height:800px">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                    @Html.Action("TypePartial", "SanPham", new { thuonghieu = TH })
+                    
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Shop Top-->
+                        <div class="shop-top">
+                            <div class="shop-shorter">
+                                
+                            </div>
+                            <ul class="view-mode">
+                                <li class="active"><a href="#"><i class="fa fa-th-large"></i></a></li>
+                                <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--End Shop Top-->
+                    </div>
+                </div>
+                @Html.Action("DanhMucSP", "SanPham", new { listSP = Model })
+                @if(Model.PageCount>1)
+                {
+                    <div class="float-right text-right mt-lg-5 align-bottom">
+                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                        @Html.PagedListPager(Model, page => Url.Action("SanPhamTheoThuongHieu", new { page = page, @idLoai = ViewBag.IdLoai, @idTH = ViewBag.IdTH }))
+
+                    </div>
+                }
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+<!--End Product Style-->
+

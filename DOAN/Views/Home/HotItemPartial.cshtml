@@ -1,0 +1,76 @@
+﻿@using DOAN.Models
+@model IEnumerable<SANPHAM>
+
+
+@{
+    var listSP = Model.OrderByDescending(x => x.SoLanMua);
+}
+
+
+
+
+
+<!-- Start Most Popular -->
+<div class="product-area most-popular section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Sản phẩm bán chạy</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel popular-slider mt-0">
+
+                    @foreach (var item in listSP.OrderByDescending(x=>x.SoLanMua).Take(10))
+                    {
+                        <!-- Start Single Product -->
+                        <div class="single-product">
+                            <div class="product-img">
+                                <a href="@Url.Action("Index","SanPham",new {id=item.IdSP})">
+                                    <img style="width:550; height:750" class="default-img" src="@Url.Content("~/assets/client/hinhsp/"+item.THUONGHIEU.TenTH.ToLower()+"/"+item.AnhSP)" alt="#">
+                                    <img style="width:550; height:750" class="hover-img" src="@Url.Content("~/assets/client/hinhsp/"+item.THUONGHIEU.TenTH.ToLower()+"/"+item.AnhSP)" alt="#">
+                                    @if (item.NgayTao.Value.Month == DateTime.Now.Month)
+                                    {
+                                        <span class="new">Mới</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="out-of-stock">Bán chạy</span>
+                                    }
+                                </a>
+                                <div class="button-head">
+                                    <div class="product-action pr-1">
+                                       
+                                    </div>
+                                    <div class="product-action-2 pl-1">
+                                        @Ajax.ActionLink("Thêm vào giỏ hàng", "ThemGioHangAjax", "GioHang", new { MaSP = item.IdSP, strURL = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "iconGioHang", InsertionMode = InsertionMode.Replace })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h3><a href="@Url.Action("Index","SanPham",new {id=item.IdSP})">@item.TenSP</a></h3>
+                                <div class="product-price">
+                                    <span>@Url.Content(((Int32)(item.GiaGoc * @item.LoiNhuan)).ToString())<sup>đ</sup></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product -->
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Most Popular Area -->
+
+
+
+
+
+

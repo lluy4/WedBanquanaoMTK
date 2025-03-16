@@ -1,0 +1,279 @@
+﻿@using DOAN.Models;
+@{
+    var user = Session["TaiKhoan"] as NGUOIDUNG;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@Page.Title</title>
+    <link href="~/assets/admin/plugins/xoasau.css" rel="stylesheet" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/assets/admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/assets/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/assets/admin/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    
+    @RenderSection("style", required: false)
+</head>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="@Url.Action("Index","Home")" class="nav-link">Trang bán hàng</a>
+                </li>
+            </ul>
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+               
+                <li class="nav-item dropdown show">
+                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                        @if (user != null)
+                        {
+                            <span class="dropdown-item dropdown-header">@user.HoTen</span>
+                            <div class="dropdown-divider"></div>
+                            <a href="@Url.Action("ChiTietNguoiDung","NguoiDung")" class="dropdown-item">
+                                <i class="fas fa-envelope mr-2"></i>Thông tin cá nhân
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("DangXuat","Home")">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+                            </a>
+                        }
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <span class="brand-text font-weight-light ml-3">Socio<i>ll</i>a</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                @if (user != null)
+                {
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            @if (@user.Avatar == null)
+                            {
+                                if (@user.GioiTinh)
+                                {
+                                    <img src="~/assets/admin/default/11.png" class="img-circle elevation-2" style="width:50px;height:52px" alt="User Image">
+                                }
+                                else
+                                {
+                                    <img src="~/assets/admin/default/10.png" class="img-circle elevation-2" style="width:50px;height:52px" alt="User Image">
+                                }
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/assets/admin/hinhnd/"+user.Avatar)" style="width:50px;height:52px" class="img-circle elevation-2" alt="User Image">
+                            }
+
+                        </div>
+                        <div class="info mt-2">
+                            <a href="@Url.Action("ChiTietNguoiDung","NguoiDung")" class="d-block">@user.HoTen</a>
+                        </div>
+                    </div>
+                }
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                        @if (user != null && (user.IdLoaiUser == 3 || user.IdLoaiUser == 2))
+                        {
+                            <li class="nav-item">
+
+                                <a href="@Url.Action("Index","Dashboard")" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Trang chủ
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        @if (user != null && user.IdLoaiUser == 3)
+                        {
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index","NguoiDung")" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Người dùng
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="@Url.Action("Index","QuanLyThuongHieu")" class="nav-link">
+                                    <i class="nav-icon fa fa-trademark"></i>
+                                    <p>
+                                        Thương hiệu
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="@Url.Action("Index","QuanLyLoaiSP")" class="nav-link">
+                                    <i class="nav-icon fa fa-trademark"></i>
+                                    <p>
+                                        Loại sản phẩm
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+
+                        @if (user != null && (user.IdLoaiUser == 3 || user.IdLoaiUser == 2))
+                        {
+                            <li class="nav-item">
+
+                                <a href="@Url.Action("Index","QuanLySanPham")" class="nav-link">
+                                    <i class="nav-icon fa fa-gift"></i>
+                                    <p>
+                                        Sản phẩm
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index","QLHoaDon")" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Hoá đơn
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                        @if (user != null && user.IdLoaiUser == 4)
+                        {
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index","GiaoHang")" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Giao hàng
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+
+
+                        @if (user != null && user.IdLoaiUser == 3)
+                        {
+                            <li class="nav-header">CẤU HÌNH</li>
+                            <li class="nav-item">
+
+                                <a href="@Url.Action("Index","NhapHang")" class="nav-link">
+                                    <i class="nav-icon fa fa-archive"></i>
+                                    <p>
+                                        Nhập hàng
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index","QLKhuyenMai")" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Khuyến mãi
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div id="ContentPanel" class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        @RenderSection("header", required: false)
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+
+
+
+
+        <footer class="main-footer">
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/assets/admin/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/assets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/assets/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/assets/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/assets/admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/assets/admin/dist/js/demo.js"></script>
+    <script src="https://cdn.tiny.cloud/1/tjev56bjyb5yy34o29a1zliwyc2aoi0i5w6d718n0k9yxzol/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+        });
+    </script>
+    <!-- page script -->
+    @RenderSection("script", required: false)
+
+</body>
+</html>

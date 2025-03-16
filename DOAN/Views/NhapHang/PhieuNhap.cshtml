@@ -1,0 +1,211 @@
+﻿@using DOAN.Models;
+@model IEnumerable<NHAPHANG>
+
+@{
+    ViewBag.Title = "PhieuNhap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var lstSanPham = ViewBag.SanPham as IEnumerable<SANPHAM>;
+    var thuonghieu = ViewBag.ThuongHieu as THUONGHIEU;
+}
+
+
+@section header{
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Dashboard")">Trang chu</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","QuanLySanPham")">San pham</a></li>
+            <li class="breadcrumb-item active">Nhap hang</li>
+        </ol>
+    </div>
+}
+
+
+@section script{
+    <script>
+
+
+        $(".DeleteId").prepend("<i class='far fa-trash-alt'></i>");
+
+        $("#btnAdd").click(function () {
+            var id_cuoi = $(".ChiTietPhieuNhap").find("tr:last-child").attr("data-id");
+            i = parseInt(id_cuoi) + 1;
+
+            var noidung = $(".trAppend").html();
+            //var nd = "<tr><td>kkkkkk</td><td><input/></td><td><input/></td><td><div class=\"btn-group btn-group-sm\"><a class=\"btn btn-info\" href=\"#\"><i class=\"fa fa-minus\"></i></a></div></td></tr>"
+            var trnoidung = "<tr class=\"trAppended\" data-id=\"" + i + "\">" + noidung + "</tr>";
+            $(".ChiTietPhieuNhap").append(trnoidung);
+            LoadId();
+        });
+
+        function LoadId() {
+            $(".trAppended").each(function () {
+                var id = $(this).attr("data-id");
+                var nameIdSP = "[" + id + "].IdSP";
+                var nameSoLuong = "[" + id + "].SoLuong";
+                var nameGiaNhap = "[" + id + "].GiaNhap";
+                $(this).find(".ddlSanPham").prop("name", nameIdSP);
+                $(this).find(".iSoLuong").prop("name", nameSoLuong);
+                $(this).find(".iGiaNhap").prop("name", nameGiaNhap);
+            })
+        };
+
+        $("body").delegate(".btnXoa", "click", function () {
+            $(this).closest(".trAppended").remove();
+
+        });
+
+        $("#btnNhapHang").click(function () {
+
+            if (kiemtra() == false) {
+                return false;
+            }
+        });
+
+        function kiemtra() {
+            var result = true;
+            $(".iSoLuong").each(function () {
+                var giatri = $(this).val();
+                if (isNaN(giatri) == true) {
+                    alert("Invalid amount.");
+                    result= false;
+                }
+            });
+            $(".iGiaNhap").each(function () {
+                var giatri = $(this).val();
+                if (isNaN(giatri) == true) {
+                    alert("Invalid price.");
+                    result = false;
+                }
+            });
+            return result;
+        }
+
+    </script>
+}
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                @if (ViewBag.Error == 1)
+                {
+                <div class="alert alert-warning">
+                    <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    @ViewBag.NoiDung
+
+                </div>
+                }
+                else if (ViewBag.Error == -1)
+                {
+                    <div class="alert alert-success">
+                        Quá trình thực hiện thành công
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Nhập hàng theo thương hiệu</h3>
+                        <!-- Button trigger modal -->
+                    </div>
+                    @using (Html.BeginForm("PhieuNhap", "NhapHang"))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="card-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.Label("Date", htmlAttributes: new { @for = "inputBD" })
+                                        <input name="NgayNhap" type="date" id="myDate" value=@DateTime.Now.ToString("yyyy-MM-dd") class="form-control">
+                                        @Html.ValidationMessage("NgayNhap", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @if (thuonghieu != null)
+                                    {
+                                        <div class="form-group">
+                                            @Html.Label("Thương hiệu", htmlAttributes: new { @for = "inputBD" })
+                                            <input name="ThuongHieu" type="text" id="myDate" value=@thuonghieu.TenTH class="form-control" readonly>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6"></div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                            <thead>
+                                                <tr data-id="-1">
+                                                    <th>Sản phẩm</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Giá nhập</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="ChiTietPhieuNhap">
+
+                                                <tr id="row" class="trAppend" style="display:none" data-id="-1">
+                                                    <td>
+                                                        <select class="ddlSanPham form-control" name="">
+                                                            @foreach (var item in lstSanPham)
+                                                            {
+                                                                <option value="@item.IdSP">@item.TenSP</option>
+                                                            }
+                                                        </select>
+
+                                                    </td>
+                                                    <td>
+                                                        <input class="iSoLuong" value="0" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="iGiaNhap" value="0" />
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger btnXoa" style="font-size: 9px;padding: 7px 10px">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-success float-left" style="font-size:10px; padding:8px 11px" id="btnAdd"><i class="fa fa-plus"></i></button>
+                            <button type="submit" class="btn btn-primary float-right" id="btnNhapHang">Lưu</button>
+                        </div>
+                    }
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</a>

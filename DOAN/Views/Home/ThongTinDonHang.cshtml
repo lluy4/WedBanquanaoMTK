@@ -1,0 +1,118 @@
+﻿@using DOAN.Models;
+@model IEnumerable<HOADON>
+
+@{
+    ViewBag.Title = "ThongTinDonHang";
+    Layout = "~/Views/Shared/DetailLayout.cshtml";
+}
+
+@section script{
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+}
+
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="@Url.Action("ThongTinCaNhan","Home")">Tài khoản<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Quản lý đơn hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Product Style -->
+<section class="product-area shop-sidebar shop section">
+    <div class="container" style="min-height:700px">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-12">
+                <div class="shop-sidebar">
+                    <!-- Single Widget -->
+                    <h3 style="display:block; border-bottom:3px solid #EB395F; width:47%;  margin-bottom:10px"><small>TÀI KHOẢN</small></h3>
+                    <a href="@Url.Action("ThongTinCaNhan","Home")"><div class="bthuong">Thông tin tài khoản</div></a>
+                    <a href="@Url.Action("ThongTinDonHang","Home")"><div class="hdong">Quản lý đơn hàng</div></a>
+                    <a href="@Url.Action("ThayDoiMatKhau","Home")"><div class="bthuong"> Thay đổi mật khẩu</div></a>
+                    <a href="@Url.Action("DangXuat","Home")"><div class="bthuong">Đăng xuất</div></a>
+                    <!--/ End Single Widget -->
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-12 ml-5">
+
+                <div class="row">
+                    <h4 style="margin-bottom:20px; margin-top:5px; border-left:5px solid #EB395F; padding:0px 3px 0px 5px"><small>ĐƠN HÀNG CỦA TÔI</small></h4>
+                    <div class="col-12">
+                        @if (ViewBag.SL == 0)
+                        {
+                        <div class="alert alert-warning">
+                            Chưa có đơn hàng nào
+                        </div>
+                        }
+                        else
+                        {
+                            <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example1_info" style="font-family: 'Poppins', sans-serif;">
+                                <thead>
+                                    <tr>
+                                        <th>Mã hoá đơn</th>
+                                        <th>Ngày mua</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái đơn hàng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr id="row1_@item.IdHD">
+                                            <td>
+                                                <a href="@Url.Action("ChiTietDonHang","Home",new {id=item.IdHD})" style="color:#0069D9">
+                                                    @Html.DisplayFor(modelItem => item.IdHD)
+                                                </a>
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NgayDH)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TongTien)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TINHTRANG1.TenTT)
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Product Style 1  -->
