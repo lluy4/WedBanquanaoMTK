@@ -7,16 +7,36 @@
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\mtk\\decorator\\khuyenmaidecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\decorator\\khuyenmaidecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\code for life\\sellingcosmetics-jlaevs\\sellingcosmetics\\doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\views\\home\\menupartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -43,20 +63,12 @@
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\tinymce\\license.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\assets\\client\\hinhsp\\cosrx\\2.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\client\\hinhsp\\cosrx\\2.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\assets\\client\\hinhsp\\cosrx\\1.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\client\\hinhsp\\cosrx\\1.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\doan\\views\\home\\featuredbrandspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -104,13 +116,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "NhapHangFacade.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\MTK\\Facades\\NhapHangFacade.cs",
               "RelativeDocumentMoniker": "DOAN\\MTK\\Facades\\NhapHangFacade.cs",
-              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\MTK\\Facades\\NhapHangFacade.cs*",
-              "RelativeToolTip": "DOAN\\MTK\\Facades\\NhapHangFacade.cs*",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwAcAAAAKAAAAAAAAAA==",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\MTK\\Facades\\NhapHangFacade.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Facades\\NhapHangFacade.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T14:04:37.168Z",
               "IsPinned": true,
@@ -118,13 +130,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "NhapHangController.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\NhapHangController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\NhapHangController.cs",
-              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\NhapHangController.cs*",
-              "RelativeToolTip": "DOAN\\Controllers\\NhapHangController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\NhapHangController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\NhapHangController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAIwDAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T13:55:59.584Z",
               "IsPinned": true,
@@ -133,14 +145,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "DOAN\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "DOAN\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAADQBAAAAAAAAAAAhwBcAAAAMAAAAAAAAAA==",
+              "Title": "QLKhuyenMaiController.cs",
+              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLKhuyenMaiController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\QLKhuyenMaiController.cs",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLKhuyenMaiController.cs*",
+              "RelativeToolTip": "DOAN\\Controllers\\QLKhuyenMaiController.cs*",
+              "ViewState": "AgIAALwAAAAAAAAAAAAgwO0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T13:23:58.948Z",
+              "WhenOpened": "2025-03-16T09:24:38.51Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KhuyenMaiDecorator.cs",
+              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
+              "RelativeDocumentMoniker": "DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T14:26:32.121Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QLHoaDonController.cs",
+              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLHoaDonController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\QLHoaDonController.cs",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLHoaDonController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\QLHoaDonController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T14:52:46.816Z",
               "EditorCaption": ""
             },
             {
@@ -190,6 +230,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "QuanLyLoaiSPController.cs",
+              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QuanLyLoaiSPController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\QuanLyLoaiSPController.cs",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QuanLyLoaiSPController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\QuanLyLoaiSPController.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAgwJwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T14:39:18.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAADQBAAAAAAAAAAAhwBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T13:23:58.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "MenuPartial.cshtml",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Views\\Home\\MenuPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\MenuPartial.cshtml",
@@ -202,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "DOAN\\Properties\\AssemblyInfo.cs",
@@ -214,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "4.jpg",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
@@ -225,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "cosrx.jpg",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
@@ -236,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "3.jpg",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
@@ -247,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "LICENSE.TXT",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
               "RelativeDocumentMoniker": "DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
@@ -259,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "2.jpg",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
@@ -270,7 +336,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "1.jpg",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
@@ -281,19 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "QLKhuyenMaiController.cs",
-              "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLKhuyenMaiController.cs",
-              "RelativeDocumentMoniker": "DOAN\\Controllers\\QLKhuyenMaiController.cs",
-              "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\QLKhuyenMaiController.cs",
-              "RelativeToolTip": "DOAN\\Controllers\\QLKhuyenMaiController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T09:24:38.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\DashboardController.cs",
@@ -306,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "FooterPartial.cshtml",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Views\\Home\\FooterPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\FooterPartial.cshtml",
@@ -318,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "FeaturedBrandsPartial.cshtml",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
@@ -330,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "Encryptor.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Common\\Encryptor.cs",
               "RelativeDocumentMoniker": "DOAN\\Common\\Encryptor.cs",
@@ -342,19 +396,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "GiaoHangController.cs",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\GiaoHangController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\GiaoHangController.cs",
               "ToolTip": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Controllers\\GiaoHangController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\GiaoHangController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAgwHQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T09:05:18.387Z"
+              "WhenOpened": "2025-03-11T09:05:18.387Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\CODE FOR LIFE\\SellingCosmetics-jlaevs\\SellingCosmetics\\DOAN\\Web.config",
               "RelativeDocumentMoniker": "DOAN\\Web.config",

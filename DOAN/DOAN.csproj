@@ -2269,6 +2269,7 @@
     <Compile Include="Models\THUONGHIEU.cs" />
     <Compile Include="Models\TINHTRANG.cs" />
     <Compile Include="Models\TMDTDbContext.cs" />
+    <Compile Include="MTK\Decorator\KhuyenMaiDecorator.cs" />
     <Compile Include="MTK\Facades\NhapHangFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
