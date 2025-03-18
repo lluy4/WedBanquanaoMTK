@@ -358,3 +358,45 @@ D:\CODE FOR LIFE\SellingCosmetics-jlaevs\SellingCosmetics\DOAN\obj\Debug\DOAN.cs
 D:\CODE FOR LIFE\SellingCosmetics-jlaevs\SellingCosmetics\DOAN\obj\Debug\DOAN.csproj.Up2Date
 D:\CODE FOR LIFE\SellingCosmetics-jlaevs\SellingCosmetics\DOAN\obj\Debug\DOAN.dll
 D:\CODE FOR LIFE\SellingCosmetics-jlaevs\SellingCosmetics\DOAN\obj\Debug\DOAN.pdb
+D:\MTK\DOAN\bin\DOAN.dll.config
+D:\MTK\DOAN\bin\DOAN.dll
+D:\MTK\DOAN\bin\DOAN.pdb
+D:\MTK\DOAN\bin\CaptchaMvc.dll
+D:\MTK\DOAN\bin\EntityFramework.dll
+D:\MTK\DOAN\bin\EntityFramework.SqlServer.dll
+D:\MTK\DOAN\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MTK\DOAN\bin\Microsoft.Web.Infrastructure.dll
+D:\MTK\DOAN\bin\Newtonsoft.Json.dll
+D:\MTK\DOAN\bin\PagedList.dll
+D:\MTK\DOAN\bin\PagedList.Mvc.dll
+D:\MTK\DOAN\bin\System.Net.Http.Formatting.dll
+D:\MTK\DOAN\bin\System.Web.Helpers.dll
+D:\MTK\DOAN\bin\System.Web.Http.dll
+D:\MTK\DOAN\bin\System.Web.Http.WebHost.dll
+D:\MTK\DOAN\bin\System.Web.Mvc.dll
+D:\MTK\DOAN\bin\System.Web.Razor.dll
+D:\MTK\DOAN\bin\System.Web.Webpages.Deployment.dll
+D:\MTK\DOAN\bin\System.Web.Webpages.dll
+D:\MTK\DOAN\bin\System.Web.Webpages.Razor.dll
+D:\MTK\DOAN\bin\CaptchaMvc.pdb
+D:\MTK\DOAN\bin\CaptchaMvc.xml
+D:\MTK\DOAN\bin\EntityFramework.xml
+D:\MTK\DOAN\bin\EntityFramework.SqlServer.xml
+D:\MTK\DOAN\bin\Newtonsoft.Json.xml
+D:\MTK\DOAN\bin\PagedList.xml
+D:\MTK\DOAN\bin\PagedList.Mvc.xml
+D:\MTK\DOAN\bin\System.Web.Razor.xml
+D:\MTK\DOAN\bin\System.Web.Webpages.xml
+D:\MTK\DOAN\bin\System.Web.Webpages.Deployment.xml
+D:\MTK\DOAN\bin\System.Web.Webpages.Razor.xml
+D:\MTK\DOAN\bin\System.Web.Helpers.xml
+D:\MTK\DOAN\bin\System.Web.Mvc.xml
+D:\MTK\DOAN\bin\System.Net.Http.Formatting.xml
+D:\MTK\DOAN\bin\System.Web.Http.xml
+D:\MTK\DOAN\bin\System.Web.Http.WebHost.xml
+D:\MTK\DOAN\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MTK\DOAN\obj\Debug\DOAN.csproj.AssemblyReference.cache
+D:\MTK\DOAN\obj\Debug\DOAN.csproj.CoreCompileInputs.cache
+D:\MTK\DOAN\obj\Debug\DOAN.csproj.Up2Date
+D:\MTK\DOAN\obj\Debug\DOAN.dll
+D:\MTK\DOAN\obj\Debug\DOAN.pdb
