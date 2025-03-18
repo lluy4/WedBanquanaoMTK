@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
 
+//Singleton QLSP vu
 namespace DOAN.Controllers
 {
     [Authorize(Roles = "*,nhaphang")]

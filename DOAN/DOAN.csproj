@@ -2348,6 +2348,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\admin\hinhnd\" />
+    <Folder Include="MTK\Singleton\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\admin\plugins\fullcalendar-bootstrap\main.d.ts" />
