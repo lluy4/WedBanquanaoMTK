@@ -829,7 +829,7 @@ $.extend( ColReorder.prototype, {
 		}
 
 		/* Save the state */
-		this.s.dt.oInstance.oApi._fnSaveState( this.s.dt );
+		this.s.dt.oInstance.oApi._fnSaTRANG ĐIỂMate( this.s.dt );
 
 		if ( this.s.reorderCallback !== null )
 		{
@@ -1116,7 +1116,7 @@ $.extend( ColReorder.prototype, {
 			}
 
 			/* Save the state */
-			this.s.dt.oInstance.oApi._fnSaveState( this.s.dt );
+			this.s.dt.oInstance.oApi._fnSaTRANG ĐIỂMate( this.s.dt );
 
 			if ( this.s.reorderCallback !== null )
 			{

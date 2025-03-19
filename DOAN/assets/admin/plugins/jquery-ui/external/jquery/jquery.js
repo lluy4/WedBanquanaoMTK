@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * jQuery JavaScript Library v1.12.4
  * http://jquery.com/
  *
@@ -9750,9 +9750,9 @@ jQuery.extend( {
 		}
 
 		// Callback for when everything is done
-		function done( status, nativeStatusText, responses, headers ) {
+		function done( status, natiTRANG ĐIỂMatusText, responses, headers ) {
 			var isSuccess, success, error, response, modified,
-				statusText = nativeStatusText;
+				statusText = natiTRANG ĐIỂMatusText;
 
 			// Called once
 			if ( state === 2 ) {
@@ -9833,7 +9833,7 @@ jQuery.extend( {
 
 			// Set data for the fake xhr object
 			jqXHR.status = status;
-			jqXHR.statusText = ( nativeStatusText || statusText ) + "";
+			jqXHR.statusText = ( natiTRANG ĐIỂMatusText || statusText ) + "";
 
 			// Success/Error
 			if ( isSuccess ) {

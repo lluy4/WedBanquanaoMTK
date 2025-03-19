@@ -1,4 +1,4 @@
-/*! jQuery UI - v1.12.1 - 2016-09-14
+﻿/*! jQuery UI - v1.12.1 - 2016-09-14
 * http://jqueryui.com
 * Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
@@ -2412,7 +2412,7 @@ $.extend( $.effects, {
 		element.dequeue();
 	},
 
-	saveStyle: function( element ) {
+	saTRANG ĐIỂMyle: function( element ) {
 		element.data( dataSpaceStyle, element[ 0 ].style.cssText );
 	},
 
@@ -2662,7 +2662,7 @@ $.fn.extend( {
 				}
 
 				if ( !defaultMode || normalizedMode !== "none" ) {
-					$.effects.saveStyle( el );
+					$.effects.saTRANG ĐIỂMyle( el );
 				}
 
 				if ( $.isFunction( next ) ) {
@@ -3411,7 +3411,7 @@ var effectsEffectHighlight = $.effects.define( "highlight", "show", function( op
 		animation.opacity = 0;
 	}
 
-	$.effects.saveStyle( element );
+	$.effects.saTRANG ĐIỂMyle( element );
 
 	element
 		.css( {
@@ -3559,7 +3559,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 			}
 
 			if ( restore ) {
-				$.effects.saveStyle( child );
+				$.effects.saTRANG ĐIỂMyle( child );
 			}
 
 			// Animate children
@@ -3594,7 +3594,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 
 				// Need to save style here so that automatic style restoration
 				// doesn't restore to the original styles from before the animation.
-				$.effects.saveStyle( element );
+				$.effects.saTRANG ĐIỂMyle( element );
 			}
 
 			done();
@@ -6207,7 +6207,7 @@ $.extend( $.ui.autocomplete, {
 } );
 
 // Live region extension, adding a `messages` option
-// NOTE: This is an experimental API. We are still investigating
+// NOTE: This is an experimental API. We are still inTRANG ĐIỂMigating
 // a full solution for string manipulation and internationalization.
 $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {

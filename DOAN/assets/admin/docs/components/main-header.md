@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: Main Header Component
 ---
@@ -99,7 +99,7 @@ The main header contains the navbar. Construction of the navbar differs slightly
             <img src="{{'assets/img/user3-128x128.jpg' | relative_url}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
             <div class="media-body">
               <h3 class="dropdown-item-title">
-                Nora Silvester
+                Nora SilTRANG ĐIỂMer
                 <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
               </h3>
               <p class="text-sm">The subject goes here</p>
@@ -232,7 +232,7 @@ The main header contains the navbar. Construction of the navbar differs slightly
               <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Nora SilTRANG ĐIỂMer
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
@@ -379,7 +379,7 @@ Top navbar example can be found in this [demo page](https://adminlte.io/themes/d
               <img src="{{'assets/img/user3-128x128.jpg' | relative_url}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Nora SilTRANG ĐIỂMer
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
@@ -515,7 +515,7 @@ Top navbar example can be found in this [demo page](https://adminlte.io/themes/d
                 <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Nora Silvester
+                    Nora SilTRANG ĐIỂMer
                     <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                   </h3>
                   <p class="text-sm">The subject goes here</p>

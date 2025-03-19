@@ -18,12 +18,12 @@ namespace DOAN.Controllers
         {
             var model = db.LOAISANPHAMs.Where(x => x.TinhTrang == true);
             List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "Áo sơ mi"));
-            danhmuc.Add(new DANHMUC(2, "Quần tây"));
-            danhmuc.Add(new DANHMUC(3, "Vest"));
-            danhmuc.Add(new DANHMUC(4, "Áo thun"));
-            danhmuc.Add(new DANHMUC(5, "Quần thun"));
-            danhmuc.Add(new DANHMUC(6, "Phụ kiện"));
+            danhmuc.Add(new DANHMUC(1, "Chăm sóc da"));
+            danhmuc.Add(new DANHMUC(2, "Trang điểm"));
+            danhmuc.Add(new DANHMUC(3, "Chăm sóc tóc"));
+            danhmuc.Add(new DANHMUC(4, "Chăm sóc cơ thể"));
+            danhmuc.Add(new DANHMUC(5, "Phụ kiện làm đẹp"));
+            danhmuc.Add(new DANHMUC(6, "Nước hoa"));
             ViewBag.DanhMuc = danhmuc;
             return View(model);
         }
@@ -31,12 +31,12 @@ namespace DOAN.Controllers
         public ActionResult Create()
         {
             List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "Áo sơ mi"));
-            danhmuc.Add(new DANHMUC(2, "Quần tây"));
-            danhmuc.Add(new DANHMUC(3, "Vest"));
-            danhmuc.Add(new DANHMUC(4, "Áo thun"));
-            danhmuc.Add(new DANHMUC(5, "Quần thun"));
-            danhmuc.Add(new DANHMUC(6, "Phụ kiện"));
+            danhmuc.Add(new DANHMUC(1, "Chăm sóc da"));
+            danhmuc.Add(new DANHMUC(2, "Trang điểm"));
+            danhmuc.Add(new DANHMUC(3, "Chăm sóc tóc"));
+            danhmuc.Add(new DANHMUC(4, "Chăm sóc cơ thể"));
+            danhmuc.Add(new DANHMUC(5, "Phụ kiện làm đẹp"));
+            danhmuc.Add(new DANHMUC(6, "Nước hoa"));
             ViewBag.DanhMuc = new SelectList(danhmuc, "IdDM", "TenDM");
             return View();
         }
@@ -68,9 +68,9 @@ namespace DOAN.Controllers
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập");
             }
             List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "Áo sơ mi"));
-            danhmuc.Add(new DANHMUC(2, "Quần tây"));
-            danhmuc.Add(new DANHMUC(3, "Vest"));
+            danhmuc.Add(new DANHMUC(1, "THƯƠNG HIỆU"));
+            danhmuc.Add(new DANHMUC(2, "CHĂM SÓC DA"));
+            danhmuc.Add(new DANHMUC(3, "TRANG ĐIỂM"));
             danhmuc.Add(new DANHMUC(4, "Áo thun"));
             danhmuc.Add(new DANHMUC(5, "Quần thun"));
             danhmuc.Add(new DANHMUC(6, "Phụ kiện"));
@@ -118,9 +118,9 @@ namespace DOAN.Controllers
                 return HttpNotFound();
             }
             List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "Áo sơ mi"));
-            danhmuc.Add(new DANHMUC(2, "Quần tây"));
-            danhmuc.Add(new DANHMUC(3, "Vest"));
+            danhmuc.Add(new DANHMUC(1, "THƯƠNG HIỆU"));
+            danhmuc.Add(new DANHMUC(2, "CHĂM SÓC DA"));
+            danhmuc.Add(new DANHMUC(3, "TRANG ĐIỂM"));
             danhmuc.Add(new DANHMUC(4, "Áo thun"));
             danhmuc.Add(new DANHMUC(5, "Quần thun"));
             danhmuc.Add(new DANHMUC(6, "Phụ kiện"));
@@ -152,9 +152,9 @@ namespace DOAN.Controllers
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập");
             }
             List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "Áo sơ mi"));
-            danhmuc.Add(new DANHMUC(2, "Quần tây"));
-            danhmuc.Add(new DANHMUC(3, "Vest"));
+            danhmuc.Add(new DANHMUC(1, "THƯƠNG HIỆU"));
+            danhmuc.Add(new DANHMUC(2, "CHĂM SÓC DA"));
+            danhmuc.Add(new DANHMUC(3, "TRANG ĐIỂM"));
             danhmuc.Add(new DANHMUC(4, "Áo thun"));
             danhmuc.Add(new DANHMUC(5, "Quần thun"));
             danhmuc.Add(new DANHMUC(6, "Phụ kiện"));

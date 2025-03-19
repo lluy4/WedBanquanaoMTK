@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
 
     var db = {
 
@@ -866,7 +866,7 @@
         },
         {
             "Account": "F0D12CC0-31AC-A82E-FD73-EEEFDBD21A36",
-            "Name": "Sylvester Gaines",
+            "Name": "SylTRANG ĐIỂMer Gaines",
             "RegisterDate": "2004-03-12T09:57:13-08:00"
         },
         {

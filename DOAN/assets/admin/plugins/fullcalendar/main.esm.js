@@ -1,4 +1,4 @@
-/*!
+﻿/*!
 FullCalendar Core Package v4.4.0
 Docs & License: https://fullcalendar.io/
 (c) 2019 Adam Shaw
@@ -2113,7 +2113,7 @@ var EventApi = /** @class */ (function () {
             }
         }
     };
-    EventApi.prototype.moveStart = function (deltaInput) {
+    EventApi.prototype.moTRANG ĐIỂMart = function (deltaInput) {
         var delta = createDuration(deltaInput);
         if (delta) { // TODO: warning if parsed bad
             this.mutate({ startDelta: delta });
@@ -7476,7 +7476,7 @@ var View = /** @class */ (function (_super) {
     }
     View.prototype.initialize = function () {
     };
-    Object.defineProperty(View.prototype, "activeStart", {
+    Object.defineProperty(View.prototype, "actiTRANG ĐIỂMart", {
         // Date Setting/Unsetting
         // -----------------------------------------------------------------------------------------------------------------
         get: function () {

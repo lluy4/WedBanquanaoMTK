@@ -2595,7 +2595,7 @@ function pointToTextRange(point) {
   var info = textRangeInfo(point.node, point.offset);
   textRange.moveToElementText(info.node);
   textRange.collapse(info.collapseToStart);
-  textRange.moveStart('character', info.offset);
+  textRange.moTRANG ĐIỂMart('character', info.offset);
   return textRange;
 }
 /**
