@@ -2269,8 +2269,27 @@
     <Compile Include="Models\THUONGHIEU.cs" />
     <Compile Include="Models\TINHTRANG.cs" />
     <Compile Include="Models\TMDTDbContext.cs" />
+    <Compile Include="MTK\Command\ThemSanPhamCommand.cs" />
     <Compile Include="MTK\Decorator\KhuyenMaiDecorator.cs" />
     <Compile Include="MTK\Facades\NhapHangFacade.cs" />
+    <Compile Include="MTK\FactoryMethod\Quanao.cs" />
+    <Compile Include="MTK\Observe\Observer.cs" />
+    <Compile Include="MTK\Repository\IKhuyenMaiRepository.cs" />
+    <Compile Include="MTK\Repository\ILoaiSanPhamRepository.cs" />
+    <Compile Include="MTK\Repository\INhapHangRepository.cs" />
+    <Compile Include="MTK\Repository\ISanPhamRepository.cs" />
+    <Compile Include="MTK\Repository\IThuongHieuRepository.cs" />
+    <Compile Include="MTK\Repository\KhuyenMaiRepository.cs" />
+    <Compile Include="MTK\Repository\LoaiSanPhamRepository.cs" />
+    <Compile Include="MTK\Repository\NhapHangRepository.cs" />
+    <Compile Include="MTK\Repository\Repository.cs" />
+    <Compile Include="MTK\Repository\SanPhamRepository.cs" />
+    <Compile Include="MTK\Repository\ThuongHieuRepository.cs" />
+    <Compile Include="MTK\Singleton\DatabaseContext.cs" />
+    <Compile Include="MTK\Strategies\FixedDiscountStrategy.cs" />
+    <Compile Include="MTK\Strategies\PercentageDiscountStrategy.cs" />
+    <Compile Include="MTK\Strategies\QuantityDiscountStrategy.cs" />
+    <Compile Include="MTK\Strategies\Strategies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2348,7 +2367,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\admin\hinhnd\" />
-    <Folder Include="MTK\Singleton\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\admin\plugins\fullcalendar-bootstrap\main.d.ts" />

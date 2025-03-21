@@ -6,7 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
-using DOAN.MTK.Facades; // Thêm namespace để sử dụng NhapHangFacade
+using DOAN.MTK.Facades; 
 
 namespace DOAN.Controllers
 {

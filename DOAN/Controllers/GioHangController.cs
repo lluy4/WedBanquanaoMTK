@@ -4,30 +4,46 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
+using DOAN.MTK.Command;
+using DOAN.MTK.Strategies;
 
 namespace DOAN.Controllers
 {
     public class GioHangController : Controller
     {
         TMDTDbContext db = new TMDTDbContext();
+        private IDiscountStrategy _discountStrategy;
+
+        public GioHangController()
+        {
+            // Khởi tạo Strategy mặc định
+            _discountStrategy = new PercentageDiscountStrategy();
+        }
+
+        // Phương thức để thay đổi Strategy
+        public void SetDiscountStrategy(IDiscountStrategy discountStrategy)
+        {
+            _discountStrategy = discountStrategy;
+        }
+
         public List<GIOHANG> LayGioHang()
         {
             List<GIOHANG> lstGioHang = Session["GioHang"] as List<GIOHANG>;
-            if(lstGioHang==null)
+            if (lstGioHang == null)
             {
                 NGUOIDUNG user = Session["TaiKhoan"] as NGUOIDUNG;
-                if(user!=null)
+                if (user != null)
                 {
                     lstGioHang = db.GIOHANGs.Where(x => x.IdKH == user.IdUser).ToList();
-                    if(lstGioHang==null)
+                    if (lstGioHang == null)
                     {
                         lstGioHang = new List<GIOHANG>();
-                    }    
+                    }
                 }
                 else
                     lstGioHang = new List<GIOHANG>();
                 Session["GioHang"] = lstGioHang;
-            }    
+            }
             return lstGioHang;
         }
 
@@ -56,7 +72,6 @@ namespace DOAN.Controllers
                         spCheck.SoLuong--;
                 }
 
-
                 if (user != null)
                 {
                     var ds = db.GIOHANGs.Where(x => x.IdKH == user.IdUser);
@@ -78,7 +93,8 @@ namespace DOAN.Controllers
 
             return Redirect(strURL);
         }
-        public ActionResult ThemGioHangAjax(int ?MaSP, string strURL)
+
+        public ActionResult ThemGioHangAjax(int? MaSP, string strURL)
         {
             SANPHAM sp = db.SANPHAMs.SingleOrDefault(x => x.IdSP == MaSP);
             if (sp == null)
@@ -102,7 +118,6 @@ namespace DOAN.Controllers
                     spCheck.SoLuong++;
                 }
 
-                
                 if (user != null)
                 {
                     var ds = db.GIOHANGs.Where(x => x.IdKH == user.IdUser);
@@ -123,24 +138,24 @@ namespace DOAN.Controllers
                 return RedirectToAction("GioHangPartial");
             }
 
-            GIOHANG item = new GIOHANG() { IdSP = MaSP, SoLuong = 1, TinhTrang = true, SANPHAM=sp };
+            GIOHANG item = new GIOHANG() { IdSP = MaSP, SoLuong = 1, TinhTrang = true, SANPHAM = sp };
             if (sp.SoLuong < item.SoLuong)
             {
                 return Content("<script> alert(\"Sản phẩm không còn đủ số lượng\")</script>");
             }
             lstGioHang.Add(item);
-            if(user!=null)
+            if (user != null)
             {
                 var ds = db.GIOHANGs.Where(x => x.IdKH == user.IdUser);
                 db.GIOHANGs.RemoveRange(ds);
-                foreach(var i in lstGioHang)
+                foreach (var i in lstGioHang)
                 {
                     GIOHANG gh = new GIOHANG()
                     {
-                        IdKH=user.IdUser,
-                        IdSP=i.IdSP,
-                        SoLuong=i.SoLuong,
-                        TinhTrang=i.TinhTrang
+                        IdKH = user.IdUser,
+                        IdSP = i.IdSP,
+                        SoLuong = i.SoLuong,
+                        TinhTrang = i.TinhTrang
                     };
                     db.GIOHANGs.Add(gh);
                 }
@@ -172,7 +187,6 @@ namespace DOAN.Controllers
                     spCheck.TinhTrang = true;
                     spCheck.SoLuong++;
                 }
-
 
                 if (user != null)
                 {
@@ -235,7 +249,6 @@ namespace DOAN.Controllers
             {
                 lstGioHang.Remove(spCheck);
 
-
                 if (user != null)
                 {
                     var ds = db.GIOHANGs.Where(x => x.IdKH == user.IdUser);
@@ -256,7 +269,6 @@ namespace DOAN.Controllers
                 return Redirect(strURL);
             }
 
-
             return Redirect(strURL);
         }
 
@@ -268,7 +280,6 @@ namespace DOAN.Controllers
             NGUOIDUNG user = Session["TaiKhoan"] as NGUOIDUNG;
             if (user == null)
                 return RedirectToAction("DangNhap", "Home", new { strURL = strURL });
-            
 
             int TongTienSP = TinhTongThanhTien();
             int TienGiam = 0;
@@ -281,27 +292,36 @@ namespace DOAN.Controllers
                 hd.IdDTGH = dtgh.IdDTGH;
                 TienVanChuyen = dtgh.TienVanChuyen ?? 20000;
             }
-            
+
             hd.NgayDH = DateTime.Now;
             hd.IdKH = user.IdUser;
             hd.TinhTrang = 4;
             hd.SDT = user.SDT.Trim();
             hd.DiaChi = user.DiaChi;
-            
-            
+
             KHUYENMAI km = db.KHUYENMAIs.FirstOrDefault(x => x.MaKM == MaKM && x.TinhTrang == true && DateTime.Compare(DateTime.Now, x.NgayBD ?? DateTime.Now) >= 0 && DateTime.Compare(DateTime.Now, x.NgayKT ?? DateTime.Now) <= 0);
             if (km != null)
             {
+                
                 if (km.LoaiKM == 1)
                 {
-                    TienGiam = (TongTienSP * (km.GiaTri ?? 0)) / 100;
+                    SetDiscountStrategy(new PercentageDiscountStrategy());
                 }
-                else if(km.LoaiKM==2)
+                else if (km.LoaiKM == 2)
                 {
-                    TienGiam = km.GiaTri ?? 0;
+                    SetDiscountStrategy(new FixedDiscountStrategy());
                 }
+                else if (km.LoaiKM == 3)
+                {
+                    SetDiscountStrategy(new QuantityDiscountStrategy());
+                }
+
+                
+                List<GIOHANG> lstGioHang = LayGioHang();
+                TienGiam = _discountStrategy.CalculateDiscount(lstGioHang, km, TongTienSP);
                 hd.IdKM = km.IdMa;
             }
+
             hd.TienVanChuyen = TienVanChuyen;
             hd.TongTien = TongTienSP + TienVanChuyen - TienGiam;
             try
@@ -345,15 +365,15 @@ namespace DOAN.Controllers
             List<GIOHANG> listGioHang = Session["GioHang"] as List<GIOHANG>;
             if (listGioHang == null)
                 return 0;
-            return listGioHang.Sum(x => (Int32)(x.SoLuong*x.SANPHAM.GiaGoc*x.SANPHAM.LoiNhuan));
+            return listGioHang.Sum(x => (Int32)(x.SoLuong * x.SANPHAM.GiaGoc * x.SANPHAM.LoiNhuan));
         }
 
         // GET: GioHang
         public ActionResult XemGioHang()
         {
-            int TienVanChuyen= db.DTGIAOHANGs.SingleOrDefault(x=>x.TinhTrang==true).TienVanChuyen ??20000;
+            int TienVanChuyen = db.DTGIAOHANGs.SingleOrDefault(x => x.TinhTrang == true).TienVanChuyen ?? 20000;
             int TongTienSP = TinhTongThanhTien();
-            int SoLuongSP= TinhTongSoLuong();
+            int SoLuongSP = TinhTongSoLuong();
             ViewBag.TienVanChuyen = TienVanChuyen;
             ViewBag.TongSoLuong = SoLuongSP;
             ViewBag.TongTien = TongTienSP;
@@ -378,32 +398,44 @@ namespace DOAN.Controllers
             ViewBag.IsKM = 0;
             ViewBag.GiamGia = 0;
             List<GIOHANG> listGioHang = LayGioHang();
-            KHUYENMAI km= db.KHUYENMAIs.FirstOrDefault(x => x.MaKM == MaKM && x.TinhTrang==true);
-            if(km==null)
+            KHUYENMAI km = db.KHUYENMAIs.FirstOrDefault(x => x.MaKM == MaKM && x.TinhTrang == true);
+            if (km == null)
             {
                 ViewBag.KhuyenMai = "";
                 ViewBag.IsKM = 1;
                 ViewBag.ThanhToan = TongTienSP + TienVanChuyen;
             }
-            else if(DateTime.Compare(DateTime.Now, km.NgayBD ?? DateTime.Now) >= 0 && DateTime.Compare(DateTime.Now, km.NgayKT ?? DateTime.Now) <= 0)
+            else if (DateTime.Compare(DateTime.Now, km.NgayBD ?? DateTime.Now) >= 0 && DateTime.Compare(DateTime.Now, km.NgayKT ?? DateTime.Now) <= 0)
             {
-                int TienGiam = 0;
-                ViewBag.KhuyenMai = MaKM;
-                ViewBag.IsKM = 3;
+                // Chọn Strategy dựa trên loại khuyến mãi
                 if (km.LoaiKM == 1)
                 {
-                    TienGiam = (TongTienSP * (km.GiaTri ?? 0)) / 100;
-                    ViewBag.ThanhToan = TongTienSP + TienVanChuyen - TienGiam;
-                    ViewBag.GiamGia = TienGiam;
+                    SetDiscountStrategy(new PercentageDiscountStrategy());
                 }
+                else if (km.LoaiKM == 2)
+                {
+                    SetDiscountStrategy(new FixedDiscountStrategy());
+                }
+                else if (km.LoaiKM == 3)
+                {
+                    SetDiscountStrategy(new QuantityDiscountStrategy());
+                }
+
+                // Tính chiết khấu bằng Strategy
+                int TienGiam = _discountStrategy.CalculateDiscount(listGioHang, km, TongTienSP);
+
+                ViewBag.KhuyenMai = MaKM;
+                ViewBag.IsKM = 3;
+                ViewBag.ThanhToan = TongTienSP + TienVanChuyen - TienGiam;
+                ViewBag.GiamGia = TienGiam;
             }
             else
             {
                 ViewBag.KhuyenMai = "";
                 ViewBag.IsKM = 2;
                 ViewBag.ThanhToan = TongTienSP + TienVanChuyen;
-            }    
-            
+            }
+
             return View(listGioHang);
         }
 
@@ -414,7 +446,7 @@ namespace DOAN.Controllers
             return PartialView();
         }
 
-        public ActionResult Checkout(string strURL, string MaKM, int error=0)
+        public ActionResult Checkout(string strURL, string MaKM, int error = 0)
         {
             if (Session["GioHang"] == null)
                 return RedirectToAction("Index", "Home");
@@ -430,19 +462,28 @@ namespace DOAN.Controllers
             ViewBag.DiaChi = user.DiaChi;
             ViewBag.SDT = user.SDT.Trim();
 
-            if (MaKM!=null&& MaKM!=null)
+            if (MaKM != null)
             {
                 KHUYENMAI km = db.KHUYENMAIs.FirstOrDefault(x => x.MaKM == MaKM && x.TinhTrang == true && DateTime.Compare(DateTime.Now, x.NgayBD ?? DateTime.Now) >= 0 && DateTime.Compare(DateTime.Now, x.NgayKT ?? DateTime.Now) <= 0);
                 if (km != null)
                 {
+                    // Chọn Strategy dựa trên loại khuyến mãi
                     if (km.LoaiKM == 1)
                     {
-                        TienGiam = (TongTienSP * (km.GiaTri ?? 0)) / 100;
+                        SetDiscountStrategy(new PercentageDiscountStrategy());
                     }
                     else if (km.LoaiKM == 2)
                     {
-                        TienGiam = km.GiaTri ?? 0;
+                        SetDiscountStrategy(new FixedDiscountStrategy());
                     }
+                    else if (km.LoaiKM == 3)
+                    {
+                        SetDiscountStrategy(new QuantityDiscountStrategy());
+                    }
+
+                    // Tính chiết khấu bằng Strategy
+                    List<GIOHANG> lstGioHang = LayGioHang();
+                    TienGiam = _discountStrategy.CalculateDiscount(lstGioHang, km, TongTienSP);
                 }
             }
 
@@ -451,7 +492,7 @@ namespace DOAN.Controllers
             ViewBag.TongTien = TongTienSP;
             ViewBag.MaKM = MaKM;
             ViewBag.GiamGia = TienGiam;
-            ViewBag.ThanhToan = TongTienSP + TienVanChuyen-TienGiam;
+            ViewBag.ThanhToan = TongTienSP + TienVanChuyen - TienGiam;
             ViewBag.Error = error;
 
             return View(user);
@@ -459,8 +500,8 @@ namespace DOAN.Controllers
 
         public ActionResult ChinhSuaTTVanChuyen(string MaKM, string strURL, NGUOIDUNG nguoidung)
         {
-            nguoidung.SDT=nguoidung.SDT.Trim();
-            if(ModelState.IsValid)
+            nguoidung.SDT = nguoidung.SDT.Trim();
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -474,11 +515,21 @@ namespace DOAN.Controllers
                 }
                 catch (Exception e)
                 {
-
                     return RedirectToAction("Checkout", "GioHang", new { strURL = strURL, MaKM = MaKM, error = 1 });
                 }
             }
             return RedirectToAction("Checkout", "GioHang", new { strURL = strURL, MaKM = MaKM, error = 2 });
         }
+        //Command VŨ
+        public ActionResult ThemSanPham(string sanPham)
+        {
+            var gioHang = new GioHang();
+            var command = new ThemSanPhamCommand(gioHang, sanPham);
+            command.Execute();
+
+            gioHang.XemGioHang();
+            return View();
+        }
+
     }
 }

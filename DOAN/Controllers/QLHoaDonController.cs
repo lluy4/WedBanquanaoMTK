@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
+using DOAN.MTK.Observe;
 
 namespace DOAN.Controllers
 {
@@ -119,5 +120,20 @@ namespace DOAN.Controllers
                 return RedirectToAction("Index", "QLHoaDon", new { error = 1 });
             }
         }
+        //Observer VŨ
+
+        private DonHangSubject _donHangSubject = new DonHangSubject();
+
+        public ActionResult TaoDonHang()
+        {
+            // Thêm người dùng vào danh sách quan sát
+            var nguoiDung = new NguoiDung("Nguyen Van A");
+            _donHangSubject.Attach(nguoiDung);
+
+            
+
+            return View();
+        }
+
     }
 }
