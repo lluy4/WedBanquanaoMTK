@@ -2119,7 +2119,7 @@ Docs & License: https://fullcalendar.io/
                 }
             }
         };
-        EventApi.prototype.moTRANG ĐIỂMart = function (deltaInput) {
+        EventApi.prototype.moQUẦN DÀIart = function (deltaInput) {
             var delta = createDuration(deltaInput);
             if (delta) { // TODO: warning if parsed bad
                 this.mutate({ startDelta: delta });
@@ -7482,7 +7482,7 @@ Docs & License: https://fullcalendar.io/
         }
         View.prototype.initialize = function () {
         };
-        Object.defineProperty(View.prototype, "actiTRANG ĐIỂMart", {
+        Object.defineProperty(View.prototype, "actiQUẦN DÀIart", {
             // Date Setting/Unsetting
             // -----------------------------------------------------------------------------------------------------------------
             get: function () {

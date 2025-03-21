@@ -2395,7 +2395,7 @@
                                 range = input.createTextRange();
                                 range.collapse(true);
                                 range.moveEnd("character", end);
-                                range.moTRANG ĐIỂMart("character", begin);
+                                range.moQUẦN DÀIart("character", begin);
                                 range.select();
                             }
                             renderColorMask(input, {
@@ -2416,7 +2416,7 @@
                         }
                     } else if (document.selection && document.selection.createRange) {
                         range = document.selection.createRange();
-                        begin = 0 - range.duplicate().moTRANG ĐIỂMart("character", -input.inputmask._valueGet().length);
+                        begin = 0 - range.duplicate().moQUẦN DÀIart("character", -input.inputmask._valueGet().length);
                         end = begin + range.text.length;
                     }
                     return {

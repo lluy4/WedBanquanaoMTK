@@ -2412,7 +2412,7 @@ $.extend( $.effects, {
 		element.dequeue();
 	},
 
-	saTRANG ĐIỂMyle: function( element ) {
+	saQUẦN DÀIyle: function( element ) {
 		element.data( dataSpaceStyle, element[ 0 ].style.cssText );
 	},
 
@@ -2662,7 +2662,7 @@ $.fn.extend( {
 				}
 
 				if ( !defaultMode || normalizedMode !== "none" ) {
-					$.effects.saTRANG ĐIỂMyle( el );
+					$.effects.saQUẦN DÀIyle( el );
 				}
 
 				if ( $.isFunction( next ) ) {
@@ -3411,7 +3411,7 @@ var effectsEffectHighlight = $.effects.define( "highlight", "show", function( op
 		animation.opacity = 0;
 	}
 
-	$.effects.saTRANG ĐIỂMyle( element );
+	$.effects.saQUẦN DÀIyle( element );
 
 	element
 		.css( {
@@ -3559,7 +3559,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 			}
 
 			if ( restore ) {
-				$.effects.saTRANG ĐIỂMyle( child );
+				$.effects.saQUẦN DÀIyle( child );
 			}
 
 			// Animate children
@@ -3594,7 +3594,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 
 				// Need to save style here so that automatic style restoration
 				// doesn't restore to the original styles from before the animation.
-				$.effects.saTRANG ĐIỂMyle( element );
+				$.effects.saQUẦN DÀIyle( element );
 			}
 
 			done();
@@ -6207,7 +6207,7 @@ $.extend( $.ui.autocomplete, {
 } );
 
 // Live region extension, adding a `messages` option
-// NOTE: This is an experimental API. We are still inTRANG ĐIỂMigating
+// NOTE: This is an experimental API. We are still inQUẦN DÀIigating
 // a full solution for string manipulation and internationalization.
 $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {

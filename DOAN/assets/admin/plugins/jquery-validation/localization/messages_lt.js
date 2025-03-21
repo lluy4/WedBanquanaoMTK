@@ -15,21 +15,21 @@
 $.extend( $.validator.messages, {
 	required: "Šis laukas yra privalomas.",
 	remote: "Prašau pataisyti šį lauką.",
-	email: "Prašau įTRANG ĐIỂMi teisingą elektroninio pašto adresą.",
-	url: "Prašau įTRANG ĐIỂMi teisingą URL.",
-	date: "Prašau įTRANG ĐIỂMi teisingą datą.",
-	dateISO: "Prašau įTRANG ĐIỂMi teisingą datą (ISO).",
-	number: "Prašau įTRANG ĐIỂMi teisingą skaičių.",
+	email: "Prašau įQUẦN DÀIi teisingą elektroninio pašto adresą.",
+	url: "Prašau įQUẦN DÀIi teisingą URL.",
+	date: "Prašau įQUẦN DÀIi teisingą datą.",
+	dateISO: "Prašau įQUẦN DÀIi teisingą datą (ISO).",
+	number: "Prašau įQUẦN DÀIi teisingą skaičių.",
 	digits: "Prašau naudoti tik skaitmenis.",
-	creditcard: "Prašau įTRANG ĐIỂMi teisingą kreditinės kortelės numerį.",
-	equalTo: "Prašau įTRANG ĐIỂMį tą pačią reikšmę dar kartą.",
-	extension: "Prašau įTRANG ĐIỂMi reikšmę su teisingu plėtiniu.",
-	maxlength: $.validator.format( "Prašau įTRANG ĐIỂMi ne daugiau kaip {0} simbolių." ),
-	minlength: $.validator.format( "Prašau įTRANG ĐIỂMi bent {0} simbolius." ),
-	rangelength: $.validator.format( "Prašau įTRANG ĐIỂMi reikšmes, kurių ilgis nuo {0} iki {1} simbolių." ),
-	range: $.validator.format( "Prašau įTRANG ĐIỂMi reikšmę intervale nuo {0} iki {1}." ),
-	max: $.validator.format( "Prašau įTRANG ĐIỂMi reikšmę mažesnę arba lygią {0}." ),
-	min: $.validator.format( "Prašau įTRANG ĐIỂMi reikšmę didesnę arba lygią {0}." )
+	creditcard: "Prašau įQUẦN DÀIi teisingą kreditinės kortelės numerį.",
+	equalTo: "Prašau įQUẦN DÀIį tą pačią reikšmę dar kartą.",
+	extension: "Prašau įQUẦN DÀIi reikšmę su teisingu plėtiniu.",
+	maxlength: $.validator.format( "Prašau įQUẦN DÀIi ne daugiau kaip {0} simbolių." ),
+	minlength: $.validator.format( "Prašau įQUẦN DÀIi bent {0} simbolius." ),
+	rangelength: $.validator.format( "Prašau įQUẦN DÀIi reikšmes, kurių ilgis nuo {0} iki {1} simbolių." ),
+	range: $.validator.format( "Prašau įQUẦN DÀIi reikšmę intervale nuo {0} iki {1}." ),
+	max: $.validator.format( "Prašau įQUẦN DÀIi reikšmę mažesnę arba lygią {0}." ),
+	min: $.validator.format( "Prašau įQUẦN DÀIi reikšmę didesnę arba lygią {0}." )
 } );
 return $;
 }));

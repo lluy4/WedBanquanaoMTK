@@ -2113,7 +2113,7 @@ var EventApi = /** @class */ (function () {
             }
         }
     };
-    EventApi.prototype.moTRANG ĐIỂMart = function (deltaInput) {
+    EventApi.prototype.moQUẦN DÀIart = function (deltaInput) {
         var delta = createDuration(deltaInput);
         if (delta) { // TODO: warning if parsed bad
             this.mutate({ startDelta: delta });
@@ -7476,7 +7476,7 @@ var View = /** @class */ (function (_super) {
     }
     View.prototype.initialize = function () {
     };
-    Object.defineProperty(View.prototype, "actiTRANG ĐIỂMart", {
+    Object.defineProperty(View.prototype, "actiQUẦN DÀIart", {
         // Date Setting/Unsetting
         // -----------------------------------------------------------------------------------------------------------------
         get: function () {

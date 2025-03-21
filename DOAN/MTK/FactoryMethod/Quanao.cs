@@ -15,7 +15,7 @@ namespace DOAN.MTK.FactoryMethod
     {
         public override void HienThiThongTin()
         {
-            Console.WriteLine($"Áo thun: {Ten}");
+            Console.WriteLine($"ÁO THUN: {Ten}");
         }
     }
 

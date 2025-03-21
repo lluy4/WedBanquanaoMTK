@@ -1256,7 +1256,7 @@ declare module '@fullcalendar/core/View' {
         nowIndicatorIntervalID: any;
         constructor(viewSpec: ViewSpec, parentEl: HTMLElement);
         initialize(): void;
-        readonly actiTRANG ĐIỂMart: Date;
+        readonly actiQUẦN DÀIart: Date;
         readonly activeEnd: Date;
         readonly currentStart: Date;
         readonly currentEnd: Date;
@@ -2533,7 +2533,7 @@ declare module '@fullcalendar/core/api/EventApi' {
             allDay?: boolean;
             granularity?: string;
         }): void;
-        moTRANG ĐIỂMart(deltaInput: DurationInput): void;
+        moQUẦN DÀIart(deltaInput: DurationInput): void;
         moveEnd(deltaInput: DurationInput): void;
         moveDates(deltaInput: DurationInput): void;
         setAllDay(allDay: boolean, options?: {

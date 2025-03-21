@@ -1702,7 +1702,7 @@
                 end = input.selectionEnd) : window.getSelection ? (range = window.getSelection().getRangeAt(0), 
                 range.commonAncestorContainer.parentNode !== input && range.commonAncestorContainer !== input || (begin = range.startOffset, 
                 end = range.endOffset)) : document.selection && document.selection.createRange && (range = document.selection.createRange(), 
-                begin = 0 - range.duplicate().moTRANG ĐIỂMart("character", -input.inputmask._valueGet().length), 
+                begin = 0 - range.duplicate().moQUẦN DÀIart("character", -input.inputmask._valueGet().length), 
                 end = begin + range.text.length), {
                     begin: notranslate ? begin : translatePosition(begin),
                     end: notranslate ? end : translatePosition(end)
@@ -1728,7 +1728,7 @@
                         var sel = window.getSelection();
                         sel.removeAllRanges(), sel.addRange(range);
                     } else input.createTextRange && (range = input.createTextRange(), range.collapse(!0), 
-                    range.moveEnd("character", end), range.moTRANG ĐIỂMart("character", begin), range.select());
+                    range.moveEnd("character", end), range.moQUẦN DÀIart("character", begin), range.select());
                 }
             }
             function determineLastRequiredPosition(returnDefinition) {

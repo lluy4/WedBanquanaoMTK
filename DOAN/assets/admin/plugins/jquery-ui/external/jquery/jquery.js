@@ -9750,9 +9750,9 @@ jQuery.extend( {
 		}
 
 		// Callback for when everything is done
-		function done( status, natiTRANG ĐIỂMatusText, responses, headers ) {
+		function done( status, natiQUẦN DÀIatusText, responses, headers ) {
 			var isSuccess, success, error, response, modified,
-				statusText = natiTRANG ĐIỂMatusText;
+				statusText = natiQUẦN DÀIatusText;
 
 			// Called once
 			if ( state === 2 ) {
@@ -9833,7 +9833,7 @@ jQuery.extend( {
 
 			// Set data for the fake xhr object
 			jqXHR.status = status;
-			jqXHR.statusText = ( natiTRANG ĐIỂMatusText || statusText ) + "";
+			jqXHR.statusText = ( natiQUẦN DÀIatusText || statusText ) + "";
 
 			// Success/Error
 			if ( isSuccess ) {
