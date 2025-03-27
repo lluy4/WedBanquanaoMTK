@@ -7,32 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
-using DOAN.MTK.FactoryMethod;
-using DOAN.MTK.Repository;
-using DOAN.MTK.Singleton;
-using DOAN.MTK.FactoryMethod;
-
+using DOAN.MTK.Builder;
+//buidler 
 namespace DOAN.Controllers
 {
     [Authorize(Roles = "*,nhaphang")]
     public class QuanLySanPhamController : Controller
     {
-        private readonly TMDTDbContext _context;
-        private readonly ISanPhamRepository _sanPhamRepository;
-        private readonly IThuongHieuRepository _thuongHieuRepository;
-        private readonly IKhuyenMaiRepository _khuyenMaiRepository;
-        private readonly ILoaiSanPhamRepository _loaiSanPhamRepository;
-        private readonly INhapHangRepository _nhapHangRepository;
-
-        public QuanLySanPhamController()
-        {
-            _context = new TMDTDbContext();
-            _sanPhamRepository = new SanPhamRepository(_context);
-            _thuongHieuRepository = new ThuongHieuRepository(_context);
-            _khuyenMaiRepository = new KhuyenMaiRepository(_context);
-            _loaiSanPhamRepository = new LoaiSanPhamRepository(_context);
-            _nhapHangRepository = new NhapHangRepository(_context);
-        }
+        TMDTDbContext db = new TMDTDbContext();
 
         // GET: QuanLySanPham
         public ActionResult Index(int error = 0)
@@ -40,8 +22,8 @@ namespace DOAN.Controllers
             ViewBag.ThuongHieu = null;
             ViewBag.Error = error;
 
-            var list = _sanPhamRepository.GetActiveSanPhams();
-            var listTH = _thuongHieuRepository.GetActiveThuongHieus();
+            var list = db.SANPHAMs.Where(x => (x.TinhTrang == 1 || x.TinhTrang == 2));
+            var listTH = db.THUONGHIEUx.Where(x => x.TinhTrang == true);
             ViewBag.items = new SelectList(listTH, "IdTH", "TenTH");
             ViewBag.GiaTri = 0;
             ViewBag.DanhSach = list;
@@ -53,13 +35,13 @@ namespace DOAN.Controllers
         public ActionResult Index(FormCollection f)
         {
             var kq = f["ddlThuongHieu"];
-            var listTH = _thuongHieuRepository.GetActiveThuongHieus();
+            var listTH = db.THUONGHIEUx.Where(x => x.TinhTrang == true);
 
             if (kq != "")
             {
                 int giatri = int.Parse(kq);
-                ViewBag.ThuongHieu = _thuongHieuRepository.GetById(giatri);
-                var list = _sanPhamRepository.GetSanPhamsByThuongHieu(giatri);
+                ViewBag.ThuongHieu = db.THUONGHIEUx.Find(giatri);
+                var list = db.SANPHAMs.Where(x => (x.TinhTrang == 1 || x.TinhTrang == 2) && x.IdTH == giatri);
 
                 ViewBag.DanhSach = list;
                 ViewBag.items = new SelectList(listTH, "IdTH", "TenTH", giatri);
@@ -69,7 +51,7 @@ namespace DOAN.Controllers
             else
             {
                 ViewBag.ThuongHieu = null;
-                var list = _sanPhamRepository.GetActiveSanPhams();
+                var list = db.SANPHAMs.Where(x => (x.TinhTrang == 1 || x.TinhTrang == 2));
                 ViewBag.DanhSach = list;
                 ViewBag.items = new SelectList(listTH, "IdTH", "TenTH");
                 ViewBag.GiaTri = 0;
@@ -84,16 +66,16 @@ namespace DOAN.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            THUONGHIEU th = _thuongHieuRepository.GetById(idTH.Value);
+            THUONGHIEU th = db.THUONGHIEUx.FirstOrDefault(x => x.IdTH == idTH);
             if (th == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
 
-            ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM");
-            ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", th.IdTH);
-            ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai");
+            ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM");
+            ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", th.IdTH);
+            ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai");
             return View();
         }
 
@@ -104,23 +86,14 @@ namespace DOAN.Controllers
         [Authorize(Roles = "*")]
         public ActionResult Create(SANPHAM sp, HttpPostedFileBase[] AnhSP)
         {
+            string fileName = null;
             for (int i = 0; i < AnhSP.Length; i++)
             {
                 if (AnhSP[i] != null && i == 0 && AnhSP[i].ContentLength > 0)
                 {
-                    // Kiểm tra sp.IdTH và TenTH
-                    string tenth = "default"; // Giá trị mặc định nếu IdTH hoặc TenTH là null
-                    if (sp.IdTH.HasValue)
-                    {
-                        var thuongHieu = _thuongHieuRepository.GetById(sp.IdTH.Value);
-                        if (thuongHieu != null && !string.IsNullOrEmpty(thuongHieu.TenTH))
-                        {
-                            tenth = thuongHieu.TenTH.ToLower();
-                        }
-                    }
-                    var fileName = Path.GetFileName(AnhSP[i].FileName);
+                    string tenth = db.THUONGHIEUx.FirstOrDefault(x => x.IdTH == sp.IdTH).TenTH.ToLower();
+                    fileName = Path.GetFileName(AnhSP[i].FileName);
                     var path = Path.Combine(Server.MapPath("~/assets/client/hinhsp/" + tenth), fileName);
-                    sp.AnhSP = fileName;
                     if (!System.IO.File.Exists(path))
                     {
                         AnhSP[i].SaveAs(path);
@@ -128,35 +101,49 @@ namespace DOAN.Controllers
                 }
             }
 
-            sp.NgayTao = DateTime.Now;
-            sp.SoLanMua = 0;
-            sp.SoLuong = 0;
-            if (sp.SoLuong > 0)
-                sp.TinhTrang = 1;
-            else
-                sp.TinhTrang = 2;
+            // Sử dụng Builder để tạo SANPHAM
+            var sanPhamBuilder = new SanPhamBuilder()
+                .SetTenSP(sp.TenSP)
+                .SetAnhSP(fileName)
+                .SetNgayTao(DateTime.Now)
+                .SetMoTa(sp.MoTa)
+                .SetGiaGoc(sp.GiaGoc)
+                .SetLoiNhuan(sp.LoiNhuan)
+                .SetDonVi(sp.DonVi)
+                .SetSoLuong(0) // Giá trị mặc định
+                .SetSoLanMua(0) // Giá trị mặc định
+                .SetMaKM(sp.MaKM)
+                .SetIdTH(sp.IdTH)
+                .SetIdLoaiSP(sp.IdLoaiSP);
+
+            // Xử lý TinhTrang dựa trên SoLuong
+            int soLuong = 0; // Giá trị mặc định đã gán ở trên
+            sanPhamBuilder.SetTinhTrang(soLuong > 0 ? 1 : 2);
+
+            SANPHAM newSanPham = sanPhamBuilder.Build();
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _sanPhamRepository.AddSanPham(sp);
+                    db.SANPHAMs.Add(newSanPham);
+                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 catch (Exception)
                 {
                     ModelState.AddModelError("", "Quá trình thực hiện thất bại");
-                    ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM", sp.MaKM);
-                    ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", sp.IdTH);
-                    ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
+                    ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM", sp.MaKM);
+                    ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", sp.IdTH);
+                    ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
                 }
             }
             else
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập");
-                ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM", sp.MaKM);
-                ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", sp.IdTH);
-                ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
+                ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM", sp.MaKM);
+                ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", sp.IdTH);
+                ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
             }
             return View(sp);
         }
@@ -169,7 +156,7 @@ namespace DOAN.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sp = _sanPhamRepository.GetById(id.Value);
+            SANPHAM sp = db.SANPHAMs.Find(id);
             if (sp == null)
             {
                 Response.StatusCode = 404;
@@ -177,11 +164,14 @@ namespace DOAN.Controllers
             }
             try
             {
-                _sanPhamRepository.DeleteSanPham(id.Value);
+                sp.TinhTrang = 10;
+                db.Entry(sp).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string message = ex.Message;
                 return RedirectToAction("Index", "QuanLySanPham", new { error = 2 });
             }
         }
@@ -193,14 +183,14 @@ namespace DOAN.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sp = _sanPhamRepository.GetById(id.Value);
+            SANPHAM sp = db.SANPHAMs.FirstOrDefault(x => x.IdSP == id);
             if (sp == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM", sp.MaKM);
-            ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", sp.IdTH);
-            ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
+            ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM", sp.MaKM);
+            ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", sp.IdTH);
+            ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
             ViewBag.AnhCu = sp.AnhSP;
             return View(sp);
         }
@@ -211,55 +201,71 @@ namespace DOAN.Controllers
         [Authorize(Roles = "*")]
         public ActionResult Edit(SANPHAM sp, HttpPostedFileBase[] AnhSP, string AnhCu)
         {
+            string fileName = null;
             for (int i = 0; i < AnhSP.Length; i++)
             {
                 if (AnhSP[i] != null && i == 0 && AnhSP[i].ContentLength > 0)
                 {
-                    // Kiểm tra sp.IdTH và TenTH
-                    string tenth = "default"; // Giá trị mặc định nếu IdTH hoặc TenTH là null
-                    if (sp.IdTH.HasValue)
-                    {
-                        var thuongHieu = _thuongHieuRepository.GetById(sp.IdTH.Value);
-                        if (thuongHieu != null && !string.IsNullOrEmpty(thuongHieu.TenTH))
-                        {
-                            tenth = thuongHieu.TenTH.ToLower();
-                        }
-                    }
-                    var fileName = Path.GetFileName(AnhSP[i].FileName);
+                    string tenth = db.THUONGHIEUx.FirstOrDefault(x => x.IdTH == sp.IdTH).TenTH.ToLower();
+                    fileName = Path.GetFileName(AnhSP[i].FileName);
                     var path = Path.Combine(Server.MapPath("~/assets/client/hinhsp/" + tenth), fileName);
-                    sp.AnhSP = fileName;
                     if (!System.IO.File.Exists(path))
                     {
                         AnhSP[i].SaveAs(path);
                     }
                 }
             }
-            if (sp.AnhSP == null || sp.AnhSP == "")
+
+            // Nếu không có ảnh mới, sử dụng ảnh cũ
+            if (fileName == null)
             {
-                sp.AnhSP = AnhCu;
+                fileName = AnhCu;
             }
+
+            // Lấy đối tượng hiện tại từ database để giữ IdSP
+            var existingSanPham = db.SANPHAMs.FirstOrDefault(x => x.IdSP == sp.IdSP);
+
+            // Sử dụng Builder để cập nhật SANPHAM
+            var sanPhamBuilder = new SanPhamBuilder()
+                .SetTenSP(sp.TenSP)
+                .SetAnhSP(fileName)
+                .SetNgayTao(sp.NgayTao ?? DateTime.Now) // Giữ nguyên hoặc cập nhật nếu null
+                .SetMoTa(sp.MoTa)
+                .SetTinhTrang(sp.TinhTrang ?? 2) // Giữ nguyên hoặc mặc định
+                .SetGiaGoc(sp.GiaGoc)
+                .SetLoiNhuan(sp.LoiNhuan)
+                .SetDonVi(sp.DonVi)
+                .SetSoLuong(sp.SoLuong)
+                .SetSoLanMua(sp.SoLanMua)
+                .SetMaKM(sp.MaKM)
+                .SetIdTH(sp.IdTH)
+                .SetIdLoaiSP(sp.IdLoaiSP);
+
+            SANPHAM updatedSanPham = sanPhamBuilder.Build();
+            updatedSanPham.IdSP = existingSanPham.IdSP; // Đảm bảo IdSP không bị thay đổi
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _sanPhamRepository.UpdateSanPham(sp);
+                    db.Entry(existingSanPham).CurrentValues.SetValues(updatedSanPham);
+                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Quá trình thực hiện thất bại.");
-                    ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM", sp.MaKM);
-                    ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", sp.IdTH);
-                    ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
+                    ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM", sp.MaKM);
+                    ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", sp.IdTH);
+                    ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
                 }
             }
             else
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập.");
-                ViewBag.MaKM = new SelectList(_khuyenMaiRepository.GetAllKhuyenMais(), "IdMa", "MaKM", sp.MaKM);
-                ViewBag.IdTH = new SelectList(_thuongHieuRepository.GetActiveThuongHieus(), "IdTH", "TenTH", sp.IdTH);
-                ViewBag.IdLoaiSP = new SelectList(_loaiSanPhamRepository.GetAllLoaiSanPhams(), "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
+                ViewBag.MaKM = new SelectList(db.KHUYENMAIs, "IdMa", "MaKM", sp.MaKM);
+                ViewBag.IdTH = new SelectList(db.THUONGHIEUx, "IdTH", "TenTH", sp.IdTH);
+                ViewBag.IdLoaiSP = new SelectList(db.LOAISANPHAMs, "IdLoaiSP", "TenLoai", sp.IdLoaiSP);
             }
             return View(sp);
         }
@@ -270,37 +276,48 @@ namespace DOAN.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SANPHAM sp = _sanPhamRepository.GetById(id.Value);
+            SANPHAM sp = db.SANPHAMs.FirstOrDefault(x => x.IdSP == id);
             if (sp == null)
             {
                 return HttpNotFound();
             }
-            NHAPHANG nh = new NHAPHANG
-            {
-                IdSP = sp.IdSP,
-                NgayNhap = DateTime.Now,
-                GiaNhap = sp.GiaGoc,
-                SoLuong = 0
-            };
+            NHAPHANG nh = new NHAPHANG();
+            nh.IdSP = sp.IdSP;
             ViewBag.TenSP = sp.TenSP;
+            nh.NgayNhap = DateTime.Now;
+            nh.GiaNhap = sp.GiaGoc ?? 0; // Gán giá trị mặc định 0 nếu GiaGoc là null
+            nh.SoLuong = 0;
             return View(nh);
         }
 
         [HttpPost]
         public ActionResult NhapHang(NHAPHANG nh)
         {
+            // Sử dụng Builder để tạo NHAPHANG
+            var nhapHangBuilder = new NhapHangBuilder()
+                .SetNgayNhap(nh.NgayNhap)
+                .SetIdSP(nh.IdSP)
+                .SetSoLuong(nh.SoLuong)
+                .SetGiaNhap(nh.GiaNhap);
+
+            NHAPHANG newNhapHang = nhapHangBuilder.Build();
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (_nhapHangRepository.ExistsNhapHang(nh.IdSP, nh.NgayNhap))
+                    if (db.NHAPHANGs.Where(x => x.NgayNhap == newNhapHang.NgayNhap && x.IdSP == newNhapHang.IdSP).Count() == 0)
+                    {
+                        db.NHAPHANGs.Add(newNhapHang);
+                        db.SaveChanges();
+                    }
+                    else
                     {
                         return RedirectToAction("Index", "QuanLySanPham", new { error = 1 });
                     }
-                    _nhapHangRepository.AddNhapHang(nh);
                     return RedirectToAction("Index", "QuanLySanPham", new { error = -1 });
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Quá trình thực hiện thất bại.");
                 }
@@ -311,52 +328,5 @@ namespace DOAN.Controllers
             }
             return View(nh);
         }
-        //SINGLETON VŨ
-        public class QLHoaDonController : Controller
-        {
-            public ActionResult Index()
-            {
-                var dbContext = DatabaseContext.GetInstance();
-                dbContext.ExecuteQuery("SELECT * FROM HOADON");
-                return View();
-            }
-        }
-        //FactoryMethod VŨ
-        public class QuanlySanPhamController : Controller
-        {
-            public ActionResult TaoSanPham(string loaiSanPham, string tenSanPham)
-            {
-                QuanAoFactory factory = null;
-
-                // Chọn factory dựa trên loại sản phẩm
-                switch (loaiSanPham)
-                {
-                    case "AoThun":
-                        factory = new AoThunFactory();
-                        break;
-                    case "QuanJean":
-                        factory = new QuanJeanFactory();
-                        break;
-                    case "Vay":
-                        factory = new VayFactory();
-                        break;
-                    default:
-                        throw new ArgumentException("Loại sản phẩm không hợp lệ.");
-                }
-
-                // Tạo sản phẩm và hiển thị thông tin
-                if (factory != null)
-                {
-                    var sanPham = factory.TaoQuanAo(tenSanPham);
-                    sanPham.HienThiThongTin();
-                }
-
-                return View();
-            }
-        }
-
-
-
     }
-
 }

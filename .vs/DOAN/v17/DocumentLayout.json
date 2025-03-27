@@ -3,160 +3,144 @@
   "WorkspaceRootPath": "D:\\New folder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\footerpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\footerpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\views\\home\\headertoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\headertoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\views\\giohang\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\giohang\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\menupartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\menupartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\views\\shared\\homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\shared\\homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\decorator\\khuyenmaidecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\decorator\\khuyenmaidecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\assets\\admin\\dist\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\dist\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|d:\\new folder\\doan\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\isanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\isanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\iloaisanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\iloaisanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\ikhuyenmairepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\ikhuyenmairepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\command\\themsanphamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\command\\themsanphamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\observe\\observer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\observe\\observer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\quanlysanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\quanlysanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\factorymethod\\quanao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\factorymethod\\quanao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\builder\\sanphambuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\builder\\sanphambuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\singleton\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\singleton\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\builder\\inhaphangbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\builder\\inhaphangbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\strategies\\strategies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\strategies\\strategies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\builder\\isanphambuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\builder\\isanphambuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\strategies\\fixeddiscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\strategies\\fixeddiscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\strategies\\percentagediscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\strategies\\percentagediscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\loaisanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\loaisanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\khuyenmairepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\khuyenmairepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\ithuonghieurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\ithuonghieurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\sanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\sanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\strategies\\quantitydiscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\strategies\\quantitydiscountstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\nhaphangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\nhaphangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\inhaphangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\inhaphangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\thuonghieurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\thuonghieurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\builder\\nhaphangbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\builder\\nhaphangbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\command\\themsanphamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\command\\themsanphamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlhoadoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\tinymce\\license.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\tinymce\\license.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\dist\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\dist\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\qlkhuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\quanlythuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\quanlythuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\quanlyloaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\observe\\observer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\observe\\observer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\singleton\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\singleton\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\mtk\\facades\\nhaphangfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\shared\\homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\shared\\homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\sanpham\\typepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\sanpham\\typepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\sanpham\\sanphamtheodanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\sanpham\\sanphamtheodanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\footerpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\footerpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\headertoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\headertoppartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\giohang\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\giohang\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\views\\home\\menupartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\menupartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
@@ -171,16 +155,8 @@
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\views\\home\\thaydoimatkhau.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\controllers\\giaohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\client\\hinhsp\\cosrx\\3.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\client\\hinhsp\\cosrx\\3.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\admin\\tinymce\\license.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|solutionrelative:doan\\assets\\admin\\tinymce\\license.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B044234D-AA0E-4DF3-BE40-48355CA3AB25}|DOAN\\DOAN.csproj|D:\\New folder\\doan\\assets\\client\\hinhsp\\cosrx\\2.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
@@ -210,17 +186,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 42,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\New folder\\DOAN\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "DOAN\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T09:06:09.288Z",
               "IsPinned": true,
@@ -228,105 +204,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 26,
               "Title": "NhapHangFacade.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Facades\\NhapHangFacade.cs",
               "RelativeDocumentMoniker": "DOAN\\MTK\\Facades\\NhapHangFacade.cs",
               "ToolTip": "D:\\New folder\\DOAN\\MTK\\Facades\\NhapHangFacade.cs",
               "RelativeToolTip": "DOAN\\MTK\\Facades\\NhapHangFacade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T14:04:37.168Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "NhapHangController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\NhapHangController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\NhapHangController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\NhapHangController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\NhapHangController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T13:55:59.584Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "QLKhuyenMaiController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\QLKhuyenMaiController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\QLKhuyenMaiController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\QLKhuyenMaiController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\QLKhuyenMaiController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAAAN8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T09:24:38.51Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "KhuyenMaiDecorator.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Decorator\\KhuyenMaiDecorator.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAEsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T14:26:32.121Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
               "Title": "QuanLyLoaiSPController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\QuanLyLoaiSPController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\QuanLyLoaiSPController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\QuanLyLoaiSPController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\QuanLyLoaiSPController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAiwJ8AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAADwv5AAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T14:39:18.158Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 3,
               "Title": "QuanLySanPhamController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\QuanLySanPhamController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\QuanLySanPhamController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\QuanLySanPhamController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\QuanLySanPhamController.cs",
-              "ViewState": "AgIAADcBAAAAAAAAAADgv1QBAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAEsBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T08:47:30.219Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "GioHangController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\GioHangController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\GioHangController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\GioHangController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\GioHangController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAECAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T03:15:54.703Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 34,
               "Title": "MenuPartial.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\MenuPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\MenuPartial.cshtml",
@@ -335,12 +291,22 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-16T04:17:25.295Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "4.jpg",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
+              "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
+              "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
+              "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-03-16T10:18:49.518Z"
             },
             {
               "$type": "Bookmark",
@@ -384,72 +350,200 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "SANPHAM.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\Models\\SANPHAM.cs",
+              "RelativeDocumentMoniker": "DOAN\\Models\\SANPHAM.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\Models\\SANPHAM.cs",
+              "RelativeToolTip": "DOAN\\Models\\SANPHAM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T16:29:02.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NhapHangBuilder.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Builder\\NhapHangBuilder.cs",
+              "RelativeDocumentMoniker": "DOAN\\MTK\\Builder\\NhapHangBuilder.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Builder\\NhapHangBuilder.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Builder\\NhapHangBuilder.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T16:20:16.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "INhapHangBuilder.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Builder\\INhapHangBuilder.cs",
+              "RelativeDocumentMoniker": "DOAN\\MTK\\Builder\\INhapHangBuilder.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Builder\\INhapHangBuilder.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Builder\\INhapHangBuilder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T16:19:45.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SanPhamBuilder.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Builder\\SanPhamBuilder.cs",
+              "RelativeDocumentMoniker": "DOAN\\MTK\\Builder\\SanPhamBuilder.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Builder\\SanPhamBuilder.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Builder\\SanPhamBuilder.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwGMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:42:33.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ISanPhamBuilder.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Builder\\ISanPhamBuilder.cs",
+              "RelativeDocumentMoniker": "DOAN\\MTK\\Builder\\ISanPhamBuilder.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Builder\\ISanPhamBuilder.cs",
+              "RelativeToolTip": "DOAN\\MTK\\Builder\\ISanPhamBuilder.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:39:30.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NguoiDungController.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\NguoiDungController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\NguoiDungController.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\Controllers\\NguoiDungController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\NguoiDungController.cs",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAkwFQBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T14:09:36.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "adminlte.core.css.map",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map",
+              "RelativeDocumentMoniker": "DOAN\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map",
+              "ToolTip": "D:\\New folder\\DOAN\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map",
+              "RelativeToolTip": "DOAN\\assets\\admin\\docs\\assets\\css\\alt\\adminlte.core.css.map",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAAKIAAABhFwAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-26T13:56:38.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "adminlte.core.css.map",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map",
+              "RelativeDocumentMoniker": "DOAN\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map",
+              "ToolTip": "D:\\New folder\\DOAN\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map",
+              "RelativeToolTip": "DOAN\\assets\\admin\\dist\\css\\alt\\adminlte.core.css.map",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAAKIAAABhFwAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-26T13:56:35.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "QuanLyThuongHieuController.cs",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\QuanLyThuongHieuController.cs",
+              "RelativeDocumentMoniker": "DOAN\\Controllers\\QuanLyThuongHieuController.cs",
+              "ToolTip": "D:\\New folder\\DOAN\\Controllers\\QuanLyThuongHieuController.cs",
+              "RelativeToolTip": "DOAN\\Controllers\\QuanLyThuongHieuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:52:02.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "TypePartial.cshtml",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\SanPham\\TypePartial.cshtml",
+              "RelativeDocumentMoniker": "DOAN\\Views\\SanPham\\TypePartial.cshtml",
+              "ToolTip": "D:\\New folder\\DOAN\\Views\\SanPham\\TypePartial.cshtml",
+              "RelativeToolTip": "DOAN\\Views\\SanPham\\TypePartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-21T15:09:55.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SanPhamTheoDanhMuc.cshtml",
+              "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\SanPham\\SanPhamTheoDanhMuc.cshtml",
+              "RelativeDocumentMoniker": "DOAN\\Views\\SanPham\\SanPhamTheoDanhMuc.cshtml",
+              "ToolTip": "D:\\New folder\\DOAN\\Views\\SanPham\\SanPhamTheoDanhMuc.cshtml",
+              "RelativeToolTip": "DOAN\\Views\\SanPham\\SanPhamTheoDanhMuc.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-21T15:09:43.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
               "Title": "HeaderTopPartial.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\HeaderTopPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\HeaderTopPartial.cshtml",
               "ToolTip": "D:\\New folder\\DOAN\\Views\\Home\\HeaderTopPartial.cshtml",
               "RelativeToolTip": "DOAN\\Views\\Home\\HeaderTopPartial.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAADIAAABrAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAIBZwDIAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-21T12:10:55.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T12:10:55.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 33,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\GioHang\\Checkout.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\GioHang\\Checkout.cshtml",
               "ToolTip": "D:\\New folder\\DOAN\\Views\\GioHang\\Checkout.cshtml",
               "RelativeToolTip": "DOAN\\Views\\GioHang\\Checkout.cshtml",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAAAH0AAACIAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAABhwH0AAACIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-21T12:06:41.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T12:06:41.017Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 27,
               "Title": "HomeLayout.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Shared\\HomeLayout.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Shared\\HomeLayout.cshtml",
               "ToolTip": "D:\\New folder\\DOAN\\Views\\Shared\\HomeLayout.cshtml",
               "RelativeToolTip": "DOAN\\Views\\Shared\\HomeLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAIBZwMsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-21T10:26:52.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T10:26:52.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 20,
               "Title": "adminlte.min.css.map",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map",
               "RelativeDocumentMoniker": "DOAN\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map",
               "RelativeToolTip": "DOAN\\assets\\admin\\docs\\assets\\css\\adminlte.min.css.map",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACb/ggAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA8zgMAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-21T10:05:53.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T10:05:53.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "adminlte.min.css.map",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\admin\\dist\\css\\adminlte.min.css.map",
               "RelativeDocumentMoniker": "DOAN\\assets\\admin\\dist\\css\\adminlte.min.css.map",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\admin\\dist\\css\\adminlte.min.css.map",
               "RelativeToolTip": "DOAN\\assets\\admin\\dist\\css\\adminlte.min.css.map",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAC1PQEAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA8zgMAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-21T10:05:43.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T10:05:43.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 10,
               "Title": "ThemSanPhamCommand.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Command\\ThemSanPhamCommand.cs",
               "RelativeDocumentMoniker": "DOAN\\MTK\\Command\\ThemSanPhamCommand.cs",
@@ -457,25 +551,11 @@
               "RelativeToolTip": "DOAN\\MTK\\Command\\ThemSanPhamCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T04:29:39.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T04:29:39.292Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Quanao.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\FactoryMethod\\Quanao.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\FactoryMethod\\Quanao.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\FactoryMethod\\Quanao.cs",
-              "RelativeToolTip": "DOAN\\MTK\\FactoryMethod\\Quanao.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAADwvykAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T04:19:34.12Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "Observer.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Observe\\Observer.cs",
               "RelativeDocumentMoniker": "DOAN\\MTK\\Observe\\Observer.cs",
@@ -483,12 +563,11 @@
               "RelativeToolTip": "DOAN\\MTK\\Observe\\Observer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T04:10:45.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T04:10:45.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "DatabaseContext.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Singleton\\DatabaseContext.cs",
               "RelativeDocumentMoniker": "DOAN\\MTK\\Singleton\\DatabaseContext.cs",
@@ -496,231 +575,23 @@
               "RelativeToolTip": "DOAN\\MTK\\Singleton\\DatabaseContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T04:00:33.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T04:00:33.664Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "QuantityDiscountStrategy.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Strategies\\QuantityDiscountStrategy.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Strategies\\QuantityDiscountStrategy.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Strategies\\QuantityDiscountStrategy.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Strategies\\QuantityDiscountStrategy.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAABBwBkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T03:21:27.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "FixedDiscountStrategy.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Strategies\\FixedDiscountStrategy.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Strategies\\FixedDiscountStrategy.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Strategies\\FixedDiscountStrategy.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Strategies\\FixedDiscountStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAABBwAgAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T03:20:46.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "PercentageDiscountStrategy.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Strategies\\PercentageDiscountStrategy.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Strategies\\PercentageDiscountStrategy.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Strategies\\PercentageDiscountStrategy.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Strategies\\PercentageDiscountStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T03:20:19.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Strategies.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Strategies\\Strategies.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Strategies\\Strategies.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Strategies\\Strategies.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Strategies\\Strategies.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T03:19:46.349Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "NhapHangRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\NhapHangRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\NhapHangRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\NhapHangRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\NhapHangRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:52:54.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "INhapHangRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\INhapHangRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\INhapHangRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\INhapHangRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\INhapHangRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:52:27.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "LoaiSanPhamRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\LoaiSanPhamRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\LoaiSanPhamRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\LoaiSanPhamRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\LoaiSanPhamRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:51:59.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ILoaiSanPhamRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\ILoaiSanPhamRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\ILoaiSanPhamRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\ILoaiSanPhamRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\ILoaiSanPhamRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:51:35.495Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "KhuyenMaiRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\KhuyenMaiRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\KhuyenMaiRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\KhuyenMaiRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\KhuyenMaiRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAxwBIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:51:09.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IKhuyenMaiRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\IKhuyenMaiRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\IKhuyenMaiRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\IKhuyenMaiRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\IKhuyenMaiRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:50:50.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ThuongHieuRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\ThuongHieuRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\ThuongHieuRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\ThuongHieuRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\ThuongHieuRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:50:25.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IThuongHieuRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\IThuongHieuRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\IThuongHieuRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\IThuongHieuRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\IThuongHieuRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:49:55.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "SanPhamRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\SanPhamRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\SanPhamRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\SanPhamRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\SanPhamRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAADwvzcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:48:52.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ISanPhamRepository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\ISanPhamRepository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\ISanPhamRepository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\ISanPhamRepository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\ISanPhamRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:48:13.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 9,
               "Title": "SanPhamController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\SanPhamController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\SanPhamController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\SanPhamController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\SanPhamController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAiwI8AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAiwI8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:37:07.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T02:37:07.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\MTK\\Repository\\Repository.cs",
-              "RelativeDocumentMoniker": "DOAN\\MTK\\Repository\\Repository.cs",
-              "ToolTip": "D:\\New folder\\DOAN\\MTK\\Repository\\Repository.cs",
-              "RelativeToolTip": "DOAN\\MTK\\Repository\\Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:30:09.12Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "4.jpg",
-              "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
-              "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
-              "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
-              "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\4.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-03-16T10:18:49.518Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 37,
               "Title": "ThayDoiMatKhau.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\ThayDoiMatKhau.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\ThayDoiMatKhau.cshtml",
@@ -728,38 +599,36 @@
               "RelativeToolTip": "DOAN\\Views\\Home\\ThayDoiMatKhau.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-18T09:50:09.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T09:50:09.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "QLHoaDonController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\QLHoaDonController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\QLHoaDonController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\QLHoaDonController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\QLHoaDonController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T14:52:46.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T14:52:46.816Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAFkBAAAAAAAAAABBwE8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAACMBAAAAAAAAAAAkwHMBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T13:23:58.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 36,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "DOAN\\Properties\\AssemblyInfo.cs",
@@ -767,86 +636,79 @@
               "RelativeToolTip": "DOAN\\Properties\\AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T10:25:04.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T10:25:04.342Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 35,
               "Title": "cosrx.jpg",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
               "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\cosrx.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-03-16T09:57:05.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T09:57:05.939Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 38,
               "Title": "3.jpg",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
               "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\3.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-03-16T09:57:00.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T09:57:00.745Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 18,
               "Title": "LICENSE.TXT",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
               "RelativeDocumentMoniker": "DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
               "RelativeToolTip": "DOAN\\assets\\admin\\tinymce\\LICENSE.TXT",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-03-16T09:54:10.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T09:54:10.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 39,
               "Title": "2.jpg",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
               "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\2.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-03-16T09:53:30.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T09:53:30.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 40,
               "Title": "1.jpg",
               "DocumentMoniker": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
               "RelativeDocumentMoniker": "DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
               "ToolTip": "D:\\New folder\\DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
               "RelativeToolTip": "DOAN\\assets\\client\\hinhsp\\cosrx\\1.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-03-16T09:53:25.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T09:53:25.245Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 15,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\DashboardController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\DashboardController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAtwDwAAAChAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAChAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T10:11:52.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T10:11:52.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 31,
               "Title": "FooterPartial.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\FooterPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\FooterPartial.cshtml",
@@ -854,25 +716,23 @@
               "RelativeToolTip": "DOAN\\Views\\Home\\FooterPartial.cshtml",
               "ViewState": "AgIAADYAAAAAAAAAAAAtwEgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T09:36:39.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T09:36:39.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 41,
               "Title": "FeaturedBrandsPartial.cshtml",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
               "RelativeDocumentMoniker": "DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
               "ToolTip": "D:\\New folder\\DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
               "RelativeToolTip": "DOAN\\Views\\Home\\FeaturedBrandsPartial.cshtml",
-              "ViewState": "AgIAAAcAAAAAAAAAABBywAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAHB4wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T09:36:37.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T09:36:37.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 42,
               "Title": "Encryptor.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Common\\Encryptor.cs",
               "RelativeDocumentMoniker": "DOAN\\Common\\Encryptor.cs",
@@ -880,25 +740,23 @@
               "RelativeToolTip": "DOAN\\Common\\Encryptor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T09:31:38.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T09:31:38.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 14,
               "Title": "GiaoHangController.cs",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Controllers\\GiaoHangController.cs",
               "RelativeDocumentMoniker": "DOAN\\Controllers\\GiaoHangController.cs",
               "ToolTip": "D:\\New folder\\DOAN\\Controllers\\GiaoHangController.cs",
               "RelativeToolTip": "DOAN\\Controllers\\GiaoHangController.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAgwHQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAgwHQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T09:05:18.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T09:05:18.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 28,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\New folder\\DOAN\\Web.config",
               "RelativeDocumentMoniker": "DOAN\\Web.config",

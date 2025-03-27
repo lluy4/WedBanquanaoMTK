@@ -56,7 +56,7 @@ namespace DOAN.Controllers
             try
             {
                 DateTime dt = DateTime.Parse(f["NgayNhap"].ToString());
-                var result = _nhapHangFacade.ProcessNhapHang(Model, dt); // Gọi NhapHangFacade
+                var result = _nhapHangFacade.ProcessNhapHang(Model, dt); 
                 if (!result.Success)
                 {
                     return RedirectToAction("PhieuNhap", "NhapHang", new { error = 1, noidung = result.ErrorMessage });
