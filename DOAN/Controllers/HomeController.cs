@@ -23,7 +23,7 @@ namespace DOAN.Controllers
         {
             var listSP = db.SANPHAMs.Where(x => x.TinhTrang == 1);
             ViewBag.listTH = db.THUONGHIEUx;
-              
+
 
             return View();
         }
@@ -35,7 +35,7 @@ namespace DOAN.Controllers
             ViewBag.listTH = db.THUONGHIEUx;
             ViewBag.HienThi = db.THUONGHIEUx.Count() > 5 ? 5 : db.THUONGHIEUx.Count();
 
-            
+
             return PartialView(listSP);
         }
 
@@ -44,7 +44,7 @@ namespace DOAN.Controllers
         public ActionResult HotItemPartial()
         {
             var listSP = db.SANPHAMs.Where(x => x.TinhTrang == 1);
-            
+
             return PartialView(listSP);
         }
 
@@ -53,7 +53,7 @@ namespace DOAN.Controllers
         public ActionResult MenuPartial()
         {
             var listSP = db.SANPHAMs;
-            ViewBag.listSP =listSP ;
+            ViewBag.listSP = listSP;
             var listLoai = db.LOAISANPHAMs;
             return PartialView(listLoai);
         }
@@ -61,7 +61,7 @@ namespace DOAN.Controllers
         [HttpGet]
         public ActionResult DangKy()
         {
-            ViewBag.ThongBao =0;
+            ViewBag.ThongBao = 0;
             return View();
         }
 
@@ -72,21 +72,21 @@ namespace DOAN.Controllers
             ViewBag.ThongBao = 0;
             if (this.IsCaptchaValid("Captcha is not valid"))
             {
-                
+
                 user.NgayTao = DateTime.Now;
                 user.TT_User = true;
                 user.IdLoaiUser = 1;
-                if(user.Password!=user.Password1)
+                if (user.Password != user.Password1)
                 {
                     ModelState.AddModelError("", "Mật khẩu xác nhận không khớp");
                     ViewBag.ThongBao = 4;
                     return View();
-                }    
+                }
                 if (ModelState.IsValid)
                 {
-                        user.Password = Encryptor.MD5Hash(user.Password);
-                        user.Password1 = Encryptor.MD5Hash(user.Password1);
-                        if (db.NGUOIDUNGs.Where(x => x.Username == user.Mail.Trim()).Count()==0)
+                    user.Password = Encryptor.MD5Hash(user.Password);
+                    user.Password1 = Encryptor.MD5Hash(user.Password1);
+                    if (db.NGUOIDUNGs.Where(x => x.Username == user.Mail.Trim()).Count() == 0)
                     {
                         user.Username = user.Mail.Trim();
                         db.NGUOIDUNGs.Add(user);
@@ -120,14 +120,14 @@ namespace DOAN.Controllers
             ViewBag.ThongBao = 0;
             string username = f["username"].ToString();
             string password = Encryptor.MD5Hash(f["password"].ToString());
-            var user = db.NGUOIDUNGs.SingleOrDefault(x => x.Username == username && (x.Password == password|| x.Password1==password) && x.TT_User==true);
-            if(user!=null)
+            var user = db.NGUOIDUNGs.SingleOrDefault(x => x.Username == username && (x.Password == password || x.Password1 == password) && x.TT_User == true);
+            if (user != null)
             {
                 IEnumerable<PHANQUYEN> lstQuyen = db.PHANQUYENs.Where(x => x.IdLoaiUser == user.IdLoaiUser);
                 string Quyen = "";
                 foreach (var item in lstQuyen)
                 {
-                    Quyen += item.TinhNang + ","; 
+                    Quyen += item.TinhNang + ",";
                 }
                 Quyen = Quyen.Substring(0, Quyen.Length - 1);
                 PhanQuyen(username, Quyen);
@@ -158,7 +158,7 @@ namespace DOAN.Controllers
                     Session["GioHang"] = listGH;
                 }
                 if (user.Password != user.Password1)
-                    return RedirectToAction("ThayDoiMatKhau","Home");
+                    return RedirectToAction("ThayDoiMatKhau", "Home");
                 if (strURL != null && strURL != "")
                     return Redirect(strURL);
                 else
@@ -208,7 +208,7 @@ namespace DOAN.Controllers
                 smtp.Credentials = nc;
                 smtp.Send(mail);
 
-                nguoidung.SDT= nguoidung.SDT.Trim();
+                nguoidung.SDT = nguoidung.SDT.Trim();
                 nguoidung.Password1 = Encryptor.MD5Hash(password);
                 db.Entry(nguoidung).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
@@ -247,10 +247,10 @@ namespace DOAN.Controllers
             }
             else
                 return RedirectToAction("Index", "Home");
-           
+
         }
 
-        public ActionResult ThongTinCaNhan(int error=0)
+        public ActionResult ThongTinCaNhan(int error = 0)
         {
             NGUOIDUNG user = Session["TaiKhoan"] as NGUOIDUNG;
             if (user == null)
@@ -269,8 +269,8 @@ namespace DOAN.Controllers
             var GioiTinh = f["GioiTinh"];
             nguoidung.GioiTinh = bool.Parse(GioiTinh);
             nguoidung.SDT = nguoidung.SDT.Trim();
-            
-            if(ModelState.IsValid)
+
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -300,12 +300,12 @@ namespace DOAN.Controllers
             if (user == null)
                 return RedirectToAction("DangNhap", "Home", new { strURL = Request.Url.ToString() });
 
-            var list = db.HOADONs.Where(x => x.IdKH==user.IdUser).OrderByDescending(y => y.NgayDH);
+            var list = db.HOADONs.Where(x => x.IdKH == user.IdUser).OrderByDescending(y => y.NgayDH);
             ViewBag.SL = list.Count();
             return View(list);
         }
 
-        public ActionResult ChiTietDonHang(int id, int error=0)
+        public ActionResult ChiTietDonHang(int id, int error = 0)
         {
             var hoadon = db.HOADONs.Find(id);
             if (hoadon == null)
@@ -318,11 +318,11 @@ namespace DOAN.Controllers
             return View();
         }
 
-        public ActionResult ThayDoiMatKhau(int error=0)
+        public ActionResult ThayDoiMatKhau(int error = 0)
         {
             NGUOIDUNG user = Session["TaiKhoan"] as NGUOIDUNG;
             if (user == null)
-                return RedirectToAction("DangNhap", "Home",new {strURL=Request.Url.ToString()});
+                return RedirectToAction("DangNhap", "Home", new { strURL = Request.Url.ToString() });
             ViewBag.Error = error;
             return View();
         }
@@ -371,7 +371,7 @@ namespace DOAN.Controllers
                 hoadon.TinhTrang = 6;
                 db.Entry(hoadon).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ChiTietDonHang", "Home", new { id = hoadon.IdHD, error=-1 });
+                return RedirectToAction("ChiTietDonHang", "Home", new { id = hoadon.IdHD, error = -1 });
             }
             catch (Exception)
             {

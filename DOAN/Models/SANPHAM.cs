@@ -39,7 +39,7 @@
         public int? TinhTrang { get; set; }
 
         [DisplayName("Giá gốc")]
-        public int GiaGoc { get; set; }
+        public int? GiaGoc { get; set; } // Đổi từ int thành int? để cho phép NULL
 
         [DisplayName("Lợi nhuận")]
         public float? LoiNhuan { get; set; }
@@ -54,7 +54,6 @@
         [DisplayName("Số lần mua")]
         public int? SoLanMua { get; set; }
 
-   
         public int? MaKM { get; set; }
 
         [DisplayName("Thương hiệu")]
