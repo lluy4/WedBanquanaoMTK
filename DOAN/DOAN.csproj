@@ -66,6 +66,9 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -84,6 +87,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -2270,6 +2279,7 @@
     <Compile Include="Models\TINHTRANG.cs" />
     <Compile Include="Models\TMDTDbContext.cs" />
     <Compile Include="MTK\Command\ThemSanPhamCommand.cs" />
+    <Compile Include="MTK\Decorator1\SearchDecorator.cs" />
     <Compile Include="MTK\Decorator\KhuyenMaiDecorator.cs" />
     <Compile Include="MTK\Facades\NhapHangFacade.cs" />
     <Compile Include="MTK\FactoryMethod\Quanao.cs" />
@@ -2281,10 +2291,13 @@
     <Compile Include="MTK\Repository\IThuongHieuRepository.cs" />
     <Compile Include="MTK\Repository\KhuyenMaiRepository.cs" />
     <Compile Include="MTK\Repository\LoaiSanPhamRepository.cs" />
+    <Compile Include="MTK\Repository\INguoiDungRepository.cs" />
+    <Compile Include="MTK\Repository\NguoiDungRepository.cs" />
     <Compile Include="MTK\Repository\NhapHangRepository.cs" />
     <Compile Include="MTK\Repository\Repository.cs" />
     <Compile Include="MTK\Repository\SanPhamRepository.cs" />
     <Compile Include="MTK\Repository\ThuongHieuRepository.cs" />
+    <Compile Include="MTK\SimpleFactory\DanhMucFactory.cs" />
     <Compile Include="MTK\Singleton\DatabaseContext.cs" />
     <Compile Include="MTK\Strategies\FixedDiscountStrategy.cs" />
     <Compile Include="MTK\Strategies\PercentageDiscountStrategy.cs" />

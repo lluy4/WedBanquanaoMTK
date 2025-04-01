@@ -11,20 +11,32 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DOAN.Common;
 using DOAN.Models;
+using DOAN.MTK.Repository;
+using DOAN.Repositories;
 
 namespace DOAN.Controllers
 {
     [Authorize(Roles = "*,xemthongtin")]
     public class NguoiDungController : Controller
     {
+        private readonly INguoiDungRepository _nguoiDungRepository;
 
-        TMDTDbContext db = new TMDTDbContext();
-        // GET: NguoiDung
+        // Constructor không tham số
+        public NguoiDungController() : this(new NguoiDungRepository(new TMDTDbContext()))
+        {
+        }
+
+        // Constructor có tham số
+        public NguoiDungController(INguoiDungRepository nguoiDungRepository)
+        {
+            _nguoiDungRepository = nguoiDungRepository;
+        }
+
         [Authorize(Roles = "*")]
         public ActionResult Index()
         {
-            var list = db.NGUOIDUNGs.Where(x => x.TT_User == true);
-            var listND = db.LOAIUSERs;
+            var list = _nguoiDungRepository.LayTatCaNguoiDung();
+            var listND = _nguoiDungRepository.LayTatCaLoaiUser();
             ViewBag.items = new SelectList(listND, "IdLoaiUser", "TenLoai");
             ViewBag.GiaTri = 0;
             ViewBag.DanhSach = list;
@@ -37,20 +49,20 @@ namespace DOAN.Controllers
         public ActionResult Index(FormCollection f)
         {
             var kq = f["ddlNguoiDung"];
-            var listND = db.LOAIUSERs;
+            var listND = _nguoiDungRepository.LayTatCaLoaiUser();
 
-            if (kq != "")
+            if (!string.IsNullOrEmpty(kq))
             {
                 int giatri = int.Parse(kq);
-                var list = db.NGUOIDUNGs.Where(x => x.TT_User == true && x.IdLoaiUser==giatri);
+                var list = _nguoiDungRepository.LayNguoiDungTheoLoaiUser(giatri);
                 ViewBag.DanhSach = list;
-                ViewBag.items = new SelectList(listND, "IdLoaiUser", "TenLoai",giatri);
+                ViewBag.items = new SelectList(listND, "IdLoaiUser", "TenLoai", giatri);
                 ViewBag.GiaTri = giatri;
                 return View(list);
             }
             else
             {
-                var list = db.NGUOIDUNGs.Where(x => x.TT_User == true);
+                var list = _nguoiDungRepository.LayTatCaNguoiDung();
                 ViewBag.DanhSach = list;
                 ViewBag.items = new SelectList(listND, "IdLoaiUser", "TenLoai");
                 ViewBag.GiaTri = 0;
@@ -61,10 +73,9 @@ namespace DOAN.Controllers
         [Authorize(Roles = "*")]
         public ActionResult Create()
         {
-            ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai");
+            ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai");
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -72,46 +83,47 @@ namespace DOAN.Controllers
         [Authorize(Roles = "*")]
         public ActionResult Create(NGUOIDUNG nd, HttpPostedFileBase Avatar)
         {
-            if(Avatar!=null)
+            if (Avatar != null && Avatar.ContentLength > 0)
             {
-                if (Avatar.ContentLength > 0)
+                var fileName = Path.GetFileName(Avatar.FileName);
+                var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
+                nd.Avatar = fileName;
+                if (!System.IO.File.Exists(path))
                 {
-                    var fileName = Path.GetFileName(Avatar.FileName);
-                    var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
-                    nd.Avatar = fileName;
-                    if (!System.IO.File.Exists(path))
-                    {
-                        Avatar.SaveAs(path);
-                    }
+                    Avatar.SaveAs(path);
                 }
             }
 
             string email = nd.Mail;
             string password = Membership.GeneratePassword(6, 0);
-            password = Regex.Replace(password, @"[^a-zA-Z0-9]", m => "9");//tạo mật khẩu tự động
-            Gmail gmail = new Gmail();
-            gmail.To = email.Trim();
-            gmail.From = "testgoog96@gmail.com";
-            gmail.Subject = "Cấp mật khẩu đăng nhập";
-            gmail.Body = "<p>Mật khẩu đăng nhập tạm thời của bạn l&agrave; <span style=\"color: #3598db;\">" + password + "</span>. Vui l&ograve;ng thay đổi lại mật khẩu khi đăng nhập th&agrave;nh c&ocirc;ng.</p>";
-
+            password = Regex.Replace(password, @"[^a-zA-Z0-9]", m => "9");
+            Gmail gmail = new Gmail
+            {
+                To = email.Trim(),
+                From = "testgoog96@gmail.com",
+                Subject = "Cấp mật khẩu đăng nhập",
+                Body = "<p>Mật khẩu đăng nhập tạm thời của bạn l&agrave; <span style=\"color: #3598db;\">" + password + "</span>. Vui l&ograve;ng thay đổi lại mật khẩu khi đăng nhập th&agrave;nh c&ocirc;ng.</p>"
+            };
 
             try
             {
-                MailMessage mail = new MailMessage(gmail.From, gmail.To);
-                mail.Subject = gmail.Subject;
-                mail.Body = gmail.Body;
-                mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                NetworkCredential nc = new NetworkCredential("testgoog96@gmail.com", "thuytien1234567890");
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
+                MailMessage mail = new MailMessage(gmail.From, gmail.To)
+                {
+                    Subject = gmail.Subject,
+                    Body = gmail.Body,
+                    IsBodyHtml = true
+                };
+                SmtpClient smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    UseDefaultCredentials = true,
+                    Credentials = new NetworkCredential("testgoog96@gmail.com", "thuytien1234567890")
+                };
                 smtp.Send(mail);
 
-                nd.Password= Encryptor.MD5Hash(password);
+                nd.Password = Encryptor.MD5Hash(password);
                 nd.Password1 = Encryptor.MD5Hash(password);
             }
             catch (Exception)
@@ -123,39 +135,37 @@ namespace DOAN.Controllers
             nd.SDT = nd.SDT.Trim();
             nd.NgayTao = DateTime.Now;
             nd.TT_User = true;
-            
+
             if (ModelState.IsValid)
             {
-                if (db.NGUOIDUNGs.Where(x => x.Username == nd.Mail.Trim()).Count() == 0)
+                if (!_nguoiDungRepository.LayTatCaNguoiDung().Any(x => x.Username == nd.Mail.Trim()))
                 {
                     try
                     {
                         nd.Username = nd.Mail.Trim();
-                        db.NGUOIDUNGs.Add(nd);
-                        db.SaveChanges();
+                        _nguoiDungRepository.ThemNguoiDung(nd);
+                        _nguoiDungRepository.Luu();
                         return RedirectToAction("Index");
                     }
                     catch (Exception)
                     {
                         ModelState.AddModelError("", "Quá trình thực hiện thất bại.");
-                        ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+                        ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
                     }
-                    
                 }
                 else
                 {
                     ModelState.AddModelError("", "Email bạn nhập đã được sử dụng. Vui lòng sử dụng email khác.");
-                    ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
-                }    
+                    ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+                }
             }
             else
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập.");
-                ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
-            }    
+                ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+            }
             return View(nd);
         }
-
 
         [HttpPost]
         [Authorize(Roles = "*")]
@@ -165,8 +175,8 @@ namespace DOAN.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NGUOIDUNG nd = db.NGUOIDUNGs.Find(id);
-            if (nd==null)
+            NGUOIDUNG nd = _nguoiDungRepository.LayNguoiDungTheoId(id.Value);
+            if (nd == null)
             {
                 Response.StatusCode = 404;
                 return null;
@@ -176,10 +186,9 @@ namespace DOAN.Controllers
                 nd.TT_User = false;
                 nd.Mail = nd.Mail.Trim();
                 nd.SDT = nd.SDT.Trim();
-                db.Entry(nd).State = EntityState.Modified;
-                db.SaveChanges();
+                _nguoiDungRepository.CapNhatNguoiDung(nd);
+                _nguoiDungRepository.Luu();
                 return RedirectToAction("Index");
-
             }
             catch (Exception ex)
             {
@@ -196,7 +205,7 @@ namespace DOAN.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            NGUOIDUNG nd = db.NGUOIDUNGs.FirstOrDefault(x => x.IdUser == id);
+            NGUOIDUNG nd = _nguoiDungRepository.LayNguoiDungTheoId(id.Value);
             if (nd == null)
             {
                 return HttpNotFound();
@@ -204,7 +213,7 @@ namespace DOAN.Controllers
             nd.Mail = nd.Mail.Trim();
             nd.SDT = nd.SDT.Trim();
             ViewBag.AnhCu = nd.Avatar;
-            ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+            ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
             return View(nd);
         }
 
@@ -213,55 +222,46 @@ namespace DOAN.Controllers
         [Authorize(Roles = "*")]
         public ActionResult Edit(NGUOIDUNG nd, HttpPostedFileBase Avatar, string AnhCu)
         {
-            if(Avatar!=null)
+            if (Avatar != null && Avatar.ContentLength > 0)
             {
-                if (Avatar.ContentLength > 0)
+                var fileName = Path.GetFileName(Avatar.FileName);
+                var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
+                nd.Avatar = fileName;
+                if (!System.IO.File.Exists(path))
                 {
-                    var fileName = Path.GetFileName(Avatar.FileName);
-                    var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
-                    nd.Avatar = fileName;
-                    if (!System.IO.File.Exists(path))
-                    {
-                        Avatar.SaveAs(path);
-                    }
+                    Avatar.SaveAs(path);
                 }
-                else
-                    nd.Avatar = AnhCu;
             }
             else
             {
                 nd.Avatar = AnhCu;
             }
-            
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     nd.Mail = nd.Mail.Trim();
                     nd.SDT = nd.SDT.Trim();
-                    db.Entry(nd).State = EntityState.Modified;
-                    db.SaveChanges();
+                    _nguoiDungRepository.CapNhatNguoiDung(nd);
+                    _nguoiDungRepository.Luu();
                     NGUOIDUNG user = Session["TaiKhoan"] as NGUOIDUNG;
-                    if (user != null)
+                    if (user != null && user.IdUser == nd.IdUser)
                     {
-                        if (user.IdUser==nd.IdUser)
-                        {
-                            Session["TaiKhoan"] = db.NGUOIDUNGs.FirstOrDefault(x => x.IdUser == nd.IdUser);
-                        }
+                        Session["TaiKhoan"] = _nguoiDungRepository.LayNguoiDungTheoId(nd.IdUser);
                     }
                     return RedirectToAction("Index");
-
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Quá trình thực hiện thất bại.");
-                    ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+                    ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
                 }
             }
             else
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập.");
-                ViewBag.IdLoaiUser = new SelectList(db.LOAIUSERs, "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
+                ViewBag.IdLoaiUser = new SelectList(_nguoiDungRepository.LayTatCaLoaiUser(), "IdLoaiUser", "TenLoai", nd.IdLoaiUser);
             }
             return View(nd);
         }
@@ -276,25 +276,20 @@ namespace DOAN.Controllers
             }
             if (user.IdLoaiUser == 5 || (user.IdUser == nd.IdUser))
             {
-                if (Avatar != null)
+                if (Avatar != null && Avatar.ContentLength > 0)
                 {
-                    if (Avatar.ContentLength > 0)
+                    var fileName = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
+                    nd.Avatar = fileName;
+                    if (!System.IO.File.Exists(path))
                     {
-                        var fileName = Path.GetFileName(Avatar.FileName);
-                        var path = Path.Combine(Server.MapPath("~/assets/admin/hinhnd"), fileName);
-                        nd.Avatar = fileName;
-                        if (!System.IO.File.Exists(path))
-                        {
-                            Avatar.SaveAs(path);
-                        }
+                        Avatar.SaveAs(path);
                     }
-                    else
-                    {
-                        nd.Avatar = AnhCu;
-                    }    
                 }
                 else
+                {
                     nd.Avatar = AnhCu;
+                }
 
                 int error = 0;
                 nd.SDT = nd.SDT.Trim();
@@ -302,22 +297,13 @@ namespace DOAN.Controllers
                 {
                     try
                     {
-                        db.Entry(nd).State = EntityState.Modified;
-                        try
-                        {
-                            db.SaveChanges();
-                            error = -1;
-                            return RedirectToAction("ChiTietNguoiDung", new { error = error });
-                        }
-                        catch (Exception)
-                        {
-                            error = 1;
-                            return RedirectToAction("ChiTietNguoiDung", new { error = error });
-                        }
+                        _nguoiDungRepository.CapNhatNguoiDung(nd);
+                        _nguoiDungRepository.Luu();
+                        error = -1;
+                        return RedirectToAction("ChiTietNguoiDung", new { error = error });
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        string message = ex.Message;
                         error = 1;
                         return RedirectToAction("ChiTietNguoiDung", new { error = error });
                     }
@@ -326,14 +312,13 @@ namespace DOAN.Controllers
                 {
                     ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập.");
                 }
-                return RedirectToAction("ChiTietNguoiDung","NguoiDung",new {id=nd.IdUser,error=4});
+                return RedirectToAction("ChiTietNguoiDung", "NguoiDung", new { id = nd.IdUser, error = 4 });
             }
             else
             {
                 return View("LoiPhanQuyen", "Dashboard");
             }
         }
-
 
         public ActionResult ChiTietNguoiDung(int? id, int error = 0)
         {
@@ -342,7 +327,7 @@ namespace DOAN.Controllers
                 var user = Session["TaiKhoan"] as NGUOIDUNG;
                 if (user == null)
                     return HttpNotFound();
-                var nd = db.NGUOIDUNGs.Find(user.IdUser);
+                var nd = _nguoiDungRepository.LayNguoiDungTheoId(user.IdUser);
                 Session["TaiKhoan"] = nd;
                 ViewBag.AnhCu = nd.Avatar;
                 ViewBag.Error = error;
@@ -350,20 +335,19 @@ namespace DOAN.Controllers
             }
             else
             {
-                var nd = db.NGUOIDUNGs.Find(id);
+                var nd = _nguoiDungRepository.LayNguoiDungTheoId(id.Value);
                 ViewBag.Error = error;
                 return View(nd);
             }
         }
 
-        //Thay doi mat khau tren trang admin
         public ActionResult ThayDoiMatKhau(FormCollection f)
         {
             int error = 0;
             var user = Session["TaiKhoan"] as NGUOIDUNG;
             if (user == null)
                 return HttpNotFound();
-            var nd = db.NGUOIDUNGs.Find(user.IdUser);
+            var nd = _nguoiDungRepository.LayNguoiDungTheoId(user.IdUser);
             string matkhaucu = f["matkhaucu"];
             string matkhaumoi = f["matkhaumoi"];
             string xacnhan = f["xacnhan"];
@@ -381,9 +365,9 @@ namespace DOAN.Controllers
             {
                 nd.SDT = nd.SDT.Trim();
                 nd.Password = Encryptor.MD5Hash(matkhaumoi);
-                nd.Password1= Encryptor.MD5Hash(matkhaumoi);
-                db.Entry(nd).State = EntityState.Modified;
-                db.SaveChanges();
+                nd.Password1 = Encryptor.MD5Hash(matkhaumoi);
+                _nguoiDungRepository.CapNhatNguoiDung(nd);
+                _nguoiDungRepository.Luu();
                 Session["TaiKhoan"] = null;
                 FormsAuthentication.SignOut();
                 return RedirectToAction("Index", "Dashboard");

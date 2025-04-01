@@ -1,47 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DOAN.Models;
-
+using DOAN.Common;
+using System.Net;
+using System.Data.Entity;
+using DOAN.MTK.SimpleFactory;
 namespace DOAN.Controllers
 {
     public class QuanLyLoaiSPController : Controller
     {
         TMDTDbContext db = new TMDTDbContext();
+
         // GET: QuanLyLoaiSP
         public ActionResult Index()
         {
             var model = db.LOAISANPHAMs.Where(x => x.TinhTrang == true);
-            List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "ÁO SƠ MI"));
-            danhmuc.Add(new DANHMUC(2, "QUẦN DÀI"));
-            danhmuc.Add(new DANHMUC(3, "ÁO ẤM"));
-            danhmuc.Add(new DANHMUC(4, "ÁO THUN"));
-            danhmuc.Add(new DANHMUC(5, "ÁO KHOÁC"));
-            danhmuc.Add(new DANHMUC(6, "QUẦN NGẮN"));
-            ViewBag.DanhMuc = danhmuc;
+            ViewBag.DanhMuc = DanhMucFactory.CreateDanhMucList();
             return View(model);
         }
 
         public ActionResult Create()
         {
-            List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "ÁO SƠ MI"));
-            danhmuc.Add(new DANHMUC(2, "QUẦN DÀI"));
-            danhmuc.Add(new DANHMUC(3, "ÁO ẤM"));
-            danhmuc.Add(new DANHMUC(4, "ÁO THUN"));
-            danhmuc.Add(new DANHMUC(5, "ÁO KHOÁC"));
-            danhmuc.Add(new DANHMUC(6, "QUẦN NGẮN"));
-            ViewBag.DanhMuc = new SelectList(danhmuc, "IdDM", "TenDM");
+            ViewBag.DanhMuc = new SelectList(DanhMucFactory.CreateDanhMucList(), "IdDM", "TenDM");
             return View();
         }
-
-
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -67,14 +52,7 @@ namespace DOAN.Controllers
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập");
             }
-            List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "ÁO SƠ MI"));
-            danhmuc.Add(new DANHMUC(2, "QUẦN DÀI"));
-            danhmuc.Add(new DANHMUC(3, "ÁO ẤM"));
-            danhmuc.Add(new DANHMUC(4, "ÁO THUN"));
-            danhmuc.Add(new DANHMUC(5, "ÁO KHOÁC"));
-            danhmuc.Add(new DANHMUC(6, "QUẦN NGẮN"));
-            ViewBag.DanhMuc = new SelectList(danhmuc, "IdDM", "TenDM",loaiSP.DanhMuc);
+            ViewBag.DanhMuc = new SelectList(DanhMucFactory.CreateDanhMucList(), "IdDM", "TenDM", loaiSP.DanhMuc);
             return View(loaiSP);
         }
 
@@ -93,11 +71,20 @@ namespace DOAN.Controllers
             }
             try
             {
+                // Cập nhật TinhTrang của loại sản phẩm
                 loaiSP.TinhTrang = false;
                 db.Entry(loaiSP).State = EntityState.Modified;
+
+                // Cập nhật TinhTrang của các sản phẩm liên quan
+                var sanPhams = db.SANPHAMs.Where(sp => sp.IdLoaiSP == id).ToList();
+                foreach (var sp in sanPhams)
+                {
+                    sp.TinhTrang = 0; // Hoặc giá trị tương ứng để đánh dấu sản phẩm bị xóa
+                    db.Entry(sp).State = EntityState.Modified;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
             catch (Exception ex)
             {
@@ -117,14 +104,7 @@ namespace DOAN.Controllers
             {
                 return HttpNotFound();
             }
-            List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "ÁO SƠ MI"));
-            danhmuc.Add(new DANHMUC(2, "QUẦN DÀI"));
-            danhmuc.Add(new DANHMUC(3, "ÁO ẤM"));
-            danhmuc.Add(new DANHMUC(4, "ÁO THUN"));
-            danhmuc.Add(new DANHMUC(5, "ÁO KHOÁC"));
-            danhmuc.Add(new DANHMUC(6, "QUẦN NGẮN"));
-            ViewBag.DanhMuc = new SelectList(danhmuc, "IdDM", "TenDM", loaiSP.DanhMuc);
+            ViewBag.DanhMuc = new SelectList(DanhMucFactory.CreateDanhMucList(), "IdDM", "TenDM", loaiSP.DanhMuc);
             return View(loaiSP);
         }
 
@@ -151,14 +131,7 @@ namespace DOAN.Controllers
             {
                 ModelState.AddModelError("", "Vui lòng kiểm tra lại thông tin đã nhập");
             }
-            List<DANHMUC> danhmuc = new List<DANHMUC>();
-            danhmuc.Add(new DANHMUC(1, "ÁO SƠ MI"));
-            danhmuc.Add(new DANHMUC(2, "QUẦN DÀI"));
-            danhmuc.Add(new DANHMUC(3, "ÁO ẤM"));
-            danhmuc.Add(new DANHMUC(4, "ÁO THUN"));
-            danhmuc.Add(new DANHMUC(5, "ÁO KHOÁC"));
-            danhmuc.Add(new DANHMUC(6, "QUẦN NGẮN"));
-            ViewBag.DanhMuc = new SelectList(danhmuc, "IdDM", "TenDM", loaiSP.DanhMuc);
+            ViewBag.DanhMuc = new SelectList(DanhMucFactory.CreateDanhMucList(), "IdDM", "TenDM", loaiSP.DanhMuc);
             return View(loaiSP);
         }
     }
